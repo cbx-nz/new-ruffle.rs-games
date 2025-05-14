@@ -2,7 +2,7 @@
   "name": "new-ruffle.rs-games",
   "version": "1.0.0",
   "description": "",
-  "main": "basicserver.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -19,10 +19,12 @@
   },
   "homepage": "https://github.com/cbx-nz/new-ruffle.rs-games#readme",
   "dependencies": {
-    "@electron/build-tools": "^2.0.0",
     "chalk": "^5.4.1",
     "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
     "open": "^10.1.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "path-to-regexp": "^8.2.0"
   }
 }

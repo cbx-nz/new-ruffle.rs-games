@@ -10,6 +10,16 @@
         <title>Library | Game Player via Ruffle Emulation</title>
     </head>
     <body>
-
+        <div id="game-container">
+            <div id="game"></div>
+        </div>
+        <script>
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            document.getElementById("game").appendChild(player);
+            player.load("./assets/swf/pc_breakdown.swf").then(() => {
+                player.start();
+            });
+        </script>
     </body>
 </html>
