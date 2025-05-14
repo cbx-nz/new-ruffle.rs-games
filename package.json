@@ -1,0 +1,28 @@
+{
+  "name": "new-ruffle.rs-games",
+  "version": "1.0.0",
+  "description": "",
+  "main": "basicserver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbx-nz/new-ruffle.rs-games.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbx-nz/new-ruffle.rs-games/issues"
+  },
+  "homepage": "https://github.com/cbx-nz/new-ruffle.rs-games#readme",
+  "dependencies": {
+    "@electron/build-tools": "^2.0.0",
+    "chalk": "^5.4.1",
+    "express": "^5.1.0",
+    "open": "^10.1.2",
+    "path": "^0.12.7"
+  }
+}
