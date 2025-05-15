@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-NZ">
-    <head>
-        <link rel="shortcut icon" type="image/png" href="./assets/images/icons/swf.png">
-        <link href="./assets/css/index.css" rel="spreadsheet">
-        <script src="./assets/js/index.js"></script>
-        <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Library | Game Player via Ruffle Emulation</title>
-    </head>
-    <body>
-        <div id="game-container">
-            <div id="game"></div>
-        </div>
-        <script>
-            const ruffle = window.RufflePlayer.newest();
-            const player = ruffle.createPlayer();
-            document.getElementById("game").appendChild(player);
-            player.load("./assets/swf/pc_breakdown.swf").then(() => {
-                player.start();
-            });
-        </script>
-    </body>
+<head>
+    <link rel="shortcut icon" type="image/png" href="./assets/images/icons/swf.png">
+    <link href="./assets/css/index.css" rel="stylesheet"> <!-- Fixed rel attribute -->
+    <script src="./assets/js/index.js"></script>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library | Game Player via Ruffle Emulation</title>
+</head>
+<body>
+    <div id="game-container">
+        <div id="game"></div>
+    </div>
+    <script>
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        document.getElementById("game").appendChild(player);
+        player.load("./assets/swf/pc_breakdown.swf").then(() => {
+            player.start();
+        });
+    </script>
+</body>
 </html>
