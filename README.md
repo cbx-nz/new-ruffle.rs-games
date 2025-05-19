@@ -9,3 +9,9 @@ Putting Flash back on the web
 - PC Breakdown
 - Papa's Pizzeria
 - Bloxorz
+- Bloons TD
+- Bloons TD 2
+- Factory Balls
+- Factory Balls 2
+- Whack your Boss
+- Whack your Computer
