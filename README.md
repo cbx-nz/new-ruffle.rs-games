@@ -16,3 +16,5 @@ Putting Flash back on the web
 - Whack your Boss
 - Whack your Computer
 - Steak and Jake
+- Sugar Sugar
+- Sugar Sugar 2
