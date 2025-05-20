@@ -19,3 +19,4 @@ Putting Flash back on the web
 - Sugar Sugar
 - Sugar Sugar 2
 - Airport Tycoon
+- Jack Smith
