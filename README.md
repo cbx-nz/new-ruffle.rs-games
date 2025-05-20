@@ -1,8 +1,8 @@
 # new-ruffle.rs-games
 
-Putting Flash back on the web
+Putting Flash back on the web, now with a game library
 
-## Game Library
+## Game Library - sorted by Date Added (First to Latest Addition)
 
 - Soldier Diary
 - Mini Commando
@@ -20,3 +20,5 @@ Putting Flash back on the web
 - Sugar Sugar 2
 - Airport Tycoon
 - Jack Smith
+- Papa's Freezeria
+- Papa's Burgeria
