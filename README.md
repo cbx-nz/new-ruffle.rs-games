@@ -22,3 +22,4 @@ Putting Flash back on the web, now with a game library
 - Jack Smith
 - Papa's Freezeria
 - Papa's Burgeria
+- Talking Tom Cat 2
