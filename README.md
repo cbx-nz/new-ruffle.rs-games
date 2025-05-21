@@ -2,6 +2,12 @@
 
 Putting Flash back on the web, now with a game library
 
+## root/.js files
+
+- dir.js for directory listings
+- server.js for original js file
+- unity.js for unity3d webgl file testing
+
 ## Game Library - sorted by Date Added (First to Latest Addition)
 
 - Soldier Diary
