@@ -141,3 +141,4 @@ dist
 node_modules/
 # desktop.ini if you change the folder icon and the ico is in the assets/img/ico (WINDOWS)
 desktop.ini
+public/assets/unity/fpsdemo/
