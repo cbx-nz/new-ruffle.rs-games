@@ -13,30 +13,7 @@
 <body>
   <form id="pageForm" autocomplete="off">
     <input list="pages" id="pageInput" placeholder="Choose a game…" required />
-    <datalist id="pages">
-      <option value="Soldier Diary"    data-url="./players/soldierdiary.html"></option>
-      <option value="PC Breakdown"   data-url="./players/pcbreakdown.html"></option>
-      <option value="Mini Commando" data-url="./players/minicommando.html"></option>
-      <option value="Papa's Pizzeria"    data-url="./players/papaspizzeria.html"></option>
-      <option value="Bloxorz" data-url="./players/bloxorz.html"></option>
-      <option value="Bloons Tower Defense" data-url="./players/bloonstd.html"></option>
-      <option value="Bloons Tower Defense 2" data-url="./players/bloonstd2.html"></option>
-      <option value="Factory Balls" data-url="./players/factoryballs.html"></option>
-      <option value="Factory Balls 2" data-url="./players/factoryballs2.html"></option>
-      <option value="Whack your Boss" data-url="./players/whackyourboss.html"></option>
-      <option value="Whack your Computer" data-url="./players/whackyourcomputer.html"></option>
-      <option value="Steak and Jake" data-url="./players/steakandjake.html"></option>
-      <option value="Sugar Sugar" data-url="./players/sugarsugar.html"></option>
-      <option value="Sugar Sugar 2" data-url="./players/sugarsugar2.html"></option>
-      <option value="Airport Tycoon" data-url="./players/airporttycoon.html"></option>
-      <option value="Jack Smith" data-url="./players/jacksmith.html"></option>
-      <option value="Papa's Freezeria" data-url="./players/papasfreezeria.html"></option>
-      <option value="Papa's Burgeria" data-url="./players/papasburgeria.html"></option>
-      <option value="Talking Tom Cat 2" data-url="./players/talkingtomcat2.html"></option>
-      <option value="American Apple Pie" data-url="./players/americanapplepie.html"></option>
-      <option value="Nick Jr. Chemistry Set" data-url="./players/chemistryset.html"></option>
-      <option value="Oggy Moshi" data-url="./players/oggymoshi.html"></option>
-    </datalist>
+    <datalist id="pages"></datalist>
     <button type="submit">Play!</button>
   </form>
 
@@ -46,21 +23,27 @@
   </div>
 
   <div id="infoBtn">i</div>
+<script>
+  /* ---------- CONFIG ---------- */
+  const maxRecent = 15;          // how many recent games to remember
+  const optionsURL = "/assets/games.html";  // where the option list lives
 
-  <script>
-  const maxRecent = 15;
-
+  /* ---------- RECENT GAMES ---------- */
   function loadRecentGames() {
     const recent = JSON.parse(localStorage.getItem("recentGames") || "[]");
     const recentList = document.getElementById("recentList");
+    if (!recentList) return;     // skip if page has no recent list container
+
     recentList.innerHTML = "";
     recent.forEach(name => {
       const li = document.createElement("li");
       li.textContent = name;
       li.style.cursor = "pointer";
       li.addEventListener("click", () => {
-        const option = Array.from(document.querySelectorAll("#pages option"))
-          .find(o => o.value.toLowerCase() === name.toLowerCase());
+        const option = Array.from(
+          document.querySelectorAll("#pages option")
+        ).find(o => o.value.toLowerCase() === name.toLowerCase());
+
         if (option) window.location.href = option.dataset.url;
         else alert("Game not found.");
       });
@@ -68,41 +51,64 @@
     });
   }
 
+  /* ---------- MAIN BOOTSTRAP ---------- */
   window.addEventListener("DOMContentLoaded", () => {
-    // Sort datalist alphabetically
     const datalist = document.getElementById("pages");
-    const options = Array.from(datalist.querySelectorAll("option"));
-    options.sort((a, b) => a.value.toLowerCase().localeCompare(b.value.toLowerCase()));
-    datalist.innerHTML = "";
-    options.forEach(option => datalist.appendChild(option));
+    const input    = document.getElementById("pageInput");
 
-    loadRecentGames();
-  });
+    /* 1. Fetch external option list */
+    fetch(optionsURL)
+      .then(res => {
+        if (!res.ok) throw new Error(`Failed to load ${optionsURL}`);
+        return res.text();
+      })
+      .then(html => {
+        datalist.innerHTML = html;
 
-  document.getElementById("pageForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const typed = document.getElementById("pageInput").value.trim();
-    const options = document.querySelectorAll("#pages option");
+        /* 2. Sort options alphabetically */
+        const opts = Array.from(datalist.querySelectorAll("option"));
+        opts.sort((a, b) =>
+          a.value.toLowerCase().localeCompare(b.value.toLowerCase())
+        );
+        datalist.innerHTML = "";
+        opts.forEach(o => datalist.appendChild(o));
 
-    for (const o of options) {
-      if (o.value.toLowerCase() === typed.toLowerCase()) {
-        let recent = JSON.parse(localStorage.getItem("recentGames") || "[]");
-        recent = recent.filter(v => v.toLowerCase() !== typed.toLowerCase());
-        recent.unshift(o.value); // Use original casing from the datalist
-        if (recent.length > maxRecent) recent = recent.slice(0, maxRecent);
-        localStorage.setItem("recentGames", JSON.stringify(recent));
-        loadRecentGames(); // Update list before redirect (in case you cancel navigation)
-        window.location.href = o.dataset.url;
-        return;
+        /* 3. Populate recent game list once options are ready */
+        loadRecentGames();
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Failed to load game list.");
+        loadRecentGames(); // still try to show recents
+      });
+
+    /* 4. Form submission handling */
+    document.getElementById("pageForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const typed   = input.value.trim().toLowerCase();
+      const options = document.querySelectorAll("#pages option");
+
+      for (const o of options) {
+        if (o.value.toLowerCase() === typed) {
+          // Maintain recent-games list
+          let recent = JSON.parse(localStorage.getItem("recentGames") || "[]");
+          recent = recent.filter(v => v.toLowerCase() !== typed);
+          recent.unshift(o.value);            // preserve original casing
+          if (recent.length > maxRecent) recent.length = maxRecent;
+          localStorage.setItem("recentGames", JSON.stringify(recent));
+
+          loadRecentGames();                 // update list before navigation
+          window.location.href = o.dataset.url;
+          return;
+        }
       }
-    }
+      alert("Please select a valid page from the list.");
+    });
 
-    alert("Please select a valid page from the list.");
-  });
-
-  const input = document.getElementById("pageInput");
-  input.addEventListener("focus", () => {
-    input.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowDown" }));
+    /* 5. Auto-open dropdown on focus */
+    input.addEventListener("focus", () => {
+      input.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowDown" }));
+    });
   });
 </script>
 </body>
