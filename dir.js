@@ -9,7 +9,7 @@ const fs = require('fs');
 const { exec } = require('child_process');
 
 const app  = express();
-const PORT = 3000;
+const PORT = 3001;
 const PUBLIC = path.join(__dirname, 'public');
 
 // 1) Serve static assets from /public
