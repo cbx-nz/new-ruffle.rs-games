@@ -32,3 +32,4 @@ Putting Flash back on the web, now with a game library
 - American Apple Pie
 - Nick Jr. Chemistry Set
 - Oggy Moshi
+- Earn to Die
