@@ -39,7 +39,7 @@
 <body>
   <a href="/index.html" class="back-button">&#8592; Home</a>
   <div id="flash-container"></div>
-<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<script src="/assets/ruffle.rs/ruffle.js"></script>
 <script>
   window.addEventListener("DOMContentLoaded", () => {
     const ruffle = window.RufflePlayer?.newest() || window.RufflePlayer?.createPlayer();
@@ -48,7 +48,7 @@
     player.style.width = "100%";
     player.style.height = "100%";
     container.appendChild(player);
-    player.load("/assets/swf/.swf");
+    player.load("/assets/swf/sugarsugar.swf");
   });
 </script>
 </body>
