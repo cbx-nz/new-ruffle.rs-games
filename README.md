@@ -33,3 +33,8 @@ Putting Flash back on the web, now with a game library
 - Nick Jr. Chemistry Set
 - Oggy Moshi
 - Earn to Die
+- Penguin Diner
+- Penguin Diner 2
+- Strike Force Kitty Last Stand
+- Ragdoll Achievement
+- Ragdoll Achievement 2

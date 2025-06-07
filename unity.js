@@ -6,7 +6,7 @@ const expressStaticGzip = require('express-static-gzip');
 const mime = require('mime');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3048;
 
 /* ------------------------------------------------------------------ */
 /* 1) If the URL already ends with .br or .gz, manually add encoding  */
