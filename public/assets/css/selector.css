@@ -81,7 +81,7 @@ html, body {
     }
 
     #infoBtn:hover::after {
-      content: "Recently added Highway Drift Racing and Mineblocks. 18/07/2025";
+      content: "go to https://onlinemathsclub.vercel.app/README.md for more info";
       position: absolute;
       bottom: 110%;
       left: 0;
