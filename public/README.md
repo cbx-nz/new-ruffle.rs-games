@@ -48,3 +48,4 @@ Putting Flash back on the web, now with a game library
 - Cooking Tasty Donuts
 - Ben & Small's Magic Baking Game
 - Double Wire 3
+- Papa's Bakeria
