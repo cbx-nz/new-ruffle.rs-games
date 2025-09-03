@@ -312,6 +312,10 @@ html, body {
       fill: #6c757d;
     }
 
+    #developerBtn:hover svg {
+      fill: #007bff;
+    }
+
     #infoBtn:hover::after {
       content: "go to https://onlinemathsclub.vercel.app/README.md for more info";
       position: absolute;
