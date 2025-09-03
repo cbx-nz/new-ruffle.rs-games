@@ -12,14 +12,17 @@
   <link rel="stylesheet" type="text/css" href="./assets/css/selector.css" />
 </head>
 <body>
+  <!-- Math Background Animation -->
+  <div class="math-bg" id="mathBackground"></div>
+
   <form id="pageForm" autocomplete="off">
     <input list="pages" id="pageInput" placeholder="Choose a maths club…" required />
     <datalist id="pages"></datalist>
-    <button type="submit">Play!</button>
+    <button type="submit">Join!</button>
   </form>
 
   <div id="recentGames">
-    <h3>Recent Games (Latest First)</h3>
+    <h3>Recent Clubs (Latest First)</h3>
     <ol id="recentList"></ol>
   </div>
 
@@ -28,6 +31,101 @@
   /* ---------- CONFIG ---------- */
   const maxRecent = 15;          // how many recent games to remember
   const optionsURL = "/assets/games.html";  // where the option list lives
+
+  /* ---------- MATH BACKGROUND ---------- */
+  function createMathSymbols() {
+    const mathSymbols = [
+      // Basic symbols (SVG)
+      '<svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>',
+      '<svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>',
+      '<svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4H6v2h12v-2z"/></svg>',
+      '<svg viewBox="0 0 24 24"><path d="M19 10H5v2h14v-2zm0 4H5v2h14v-2z"/></svg>',
+      '<svg viewBox="0 0 24 24"><path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 9.14C9.51 8.17 8.15 7.61 6.71 7.61c-2.88 0-5.22 2.34-5.22 5.22 0 1.44.56 2.8 1.53 3.77.97.97 2.33 1.53 3.77 1.53 1.44 0 2.8-.56 3.77-1.53L12 14.34l1.52 1.51c.97.97 2.33 1.53 3.77 1.53 2.88 0 5.22-2.34 5.22-5.22 0-1.44-.56-2.8-1.53-3.77-.97-.97-2.33-1.53-3.77-1.53z"/></svg>'
+    ];
+    
+    // Advanced mathematical equations
+    const mathEquations = [
+      // Calculus
+      '∫ f(x)dx = F(x) + C',
+      'd/dx[x²] = 2x',
+      '∂f/∂x + ∂f/∂y = ∇f',
+      'lim[x→0] sin(x)/x = 1',
+      '∫₀^∞ e^(-x²)dx = √π/2',
+      'd/dx[eˣ] = eˣ',
+      '∫ 1/x dx = ln|x| + C',
+      '∇²f = ∂²f/∂x² + ∂²f/∂y²',
+      
+      // Logarithmic
+      'log_a(xy) = log_a(x) + log_a(y)',
+      'ln(e^x) = x',
+      'log₁₀(100) = 2',
+      'ln(x) = log_e(x)',
+      'log_a(x^n) = n·log_a(x)',
+      'log_a(1) = 0',
+      'a^(log_a(x)) = x',
+      'log_a(b) = ln(b)/ln(a)',
+      'a^2 + b^2 = c^2',
+
+      // Complex equations
+      'e^(iπ) + 1 = 0',
+      'F = ma',
+      'E = mc²',
+      '∑[n=1 to ∞] 1/n²  = π²/6',
+      'sin²(x) + cos²(x) = 1',
+      'a² + b² = c²',
+      'x = (-b ± √(b²-4ac))/2a',
+      '∇ × E = -∂B/∂t',
+      
+      // Mathematical constants and functions
+      'π ≈ 3.14159...',
+      'e ≈ 2.71828...',
+      'φ = (1+√5)/2',
+      'γ ≈ 0.57721...',
+      'sin(π/2) = 1',
+      'cos(0) = 1',
+      'tan(π/4) = 1',
+      '∫ sin(x)dx = -cos(x) + C'
+    ];
+    
+    const animationClasses = ['float-horizontal', 'float-diagonal', 'float-circular', 'float-vertical', 'float-figure8', 'float-spiral', 'float-wave', 'float-orbit'];
+    const mathBg = document.getElementById('mathBackground');
+    
+    // Create 30 floating math elements (mix of symbols and equations)
+    for (let i = 0; i < 30; i++) {
+      const element = document.createElement('div');
+      element.className = `math-symbol ${animationClasses[Math.floor(Math.random() * animationClasses.length)]}`;
+      
+      // 70% chance for equations, 30% for symbols
+      if (Math.random() > 0.3) {
+        // Create equation
+        element.innerHTML = mathEquations[Math.floor(Math.random() * mathEquations.length)];
+        element.classList.add('math-equation');
+        
+        // Some equations are larger
+        if (Math.random() > 0.6) {
+          element.classList.add('large');
+        }
+      } else {
+        // Create symbol
+        element.innerHTML = mathSymbols[Math.floor(Math.random() * mathSymbols.length)];
+      }
+      
+      // Random positioning and timing - better distribution
+      element.style.left = Math.random() * 100 + '%';
+      element.style.top = Math.random() * 100 + '%';
+      element.style.animationDelay = (i * 2) + Math.random() * 10 + 's'; // More staggered timing
+      element.style.animationDuration = (20 + Math.random() * 30) + 's'; // Variable duration
+      element.style.opacity = 0.04 + Math.random() * 0.08;
+      
+      // Random size variation for symbols only
+      if (!element.classList.contains('math-equation')) {
+        const scale = 0.8 + Math.random() * 1.4;
+        element.style.transform = `scale(${scale})`;
+      }
+      
+      mathBg.appendChild(element);
+    }
+  }
 
   /* ---------- RECENT GAMES ---------- */
   function loadRecentGames() {
@@ -54,6 +152,9 @@
 
   /* ---------- MAIN BOOTSTRAP ---------- */
   window.addEventListener("DOMContentLoaded", () => {
+    // Initialize math background
+    createMathSymbols();
+    
     const datalist = document.getElementById("pages");
     const input    = document.getElementById("pageInput");
 
