@@ -49,3 +49,5 @@ Putting Flash back on the web, now with a game library
 - Ben & Small's Magic Baking Game
 - Double Wire 3
 - Papa's Bakeria
+- Happy Wheels (original)
+- Shredoku (shrek sudoku)
