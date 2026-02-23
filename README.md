@@ -3,6 +3,7 @@
 Putting Flash back on the web, now with a game library
 
     LINK:https://onlinemathsclub.vercel.app/
+    LINK:https://maths.cbx.kiwi
 
 ## root/.js files
 
@@ -53,3 +54,5 @@ Putting Flash back on the web, now with a game library
 - Papa's Bakeria
 - Happy Wheels (original)
 - Shredoku (shrek sudoku)
+- Flash Doom
+- Radio Zed
