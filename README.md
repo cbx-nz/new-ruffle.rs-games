@@ -56,3 +56,4 @@ Putting Flash back on the web, now with a game library
 - Shredoku (shrek sudoku)
 - Flash Doom
 - Radio Zed
+- Pyongyang Racer
