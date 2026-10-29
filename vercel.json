@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/api/games", "destination": "/api/games" },
+    { "source": "/api/game", "destination": "/api/game" },
+    { "source": "/api/random", "destination": "/api/random" },
+    { "source": "/play/:id", "destination": "/player.html?id=:id" },
+    { "source": "/game/:id", "destination": "/player.html?id=:id" },
+    { "source": "/calc", "destination": "/calculator.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.wasm",
+      "headers": [
+        { "key": "Content-Type", "value": "application/wasm" },
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.swf",
+      "headers": [
+        { "key": "Content-Type", "value": "application/x-shockwave-flash" },
+        { "key": "Cache-Control", "value": "public, max-age=604800" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.unityweb",
+      "headers": [
+        { "key": "Content-Type", "value": "application/octet-stream" },
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desmos Scientific Calculator | Online Maths Practice</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23005a9c'%3E%3Cpath d='M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zm0 2v4h10V4H7zm0 6v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zm-8 4v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zm-8 4v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2z'/%3E%3C/svg%3E">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f8f9fa;
+      color: #212529;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background: #005a9c;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 { font-size: 1.15rem; font-weight: 600; }
+    header a { color: #e0f2fe; text-decoration: none; font-size: 0.85rem; font-weight: 500; }
+    header a:hover { text-decoration: underline; }
+    .main-calc {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .calc-card {
+      background: #fff;
+      border: 1px solid #dee2e6;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      width: 100%;
+      max-width: 440px;
+    }
+    .display {
+      background: #1e293b;
+      color: #38bdf8;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 2rem;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: right;
+      min-height: 64px;
+      margin-bottom: 1.5rem;
+      word-break: break-all;
+    }
+    .history {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      min-height: 22px;
+      text-align: right;
+      margin-bottom: 4px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    button {
+      padding: 14px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    button:hover { background: #e2e8f0; }
+    button.op { background: #e0f2fe; color: #0284c7; }
+    button.clear { background: #fee2e2; color: #dc2626; }
+    button.equal { background: #0284c7; color: #fff; grid-column: span 2; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Desmos Scientific Calculator</h1>
+    <a href="/index.html">← Back to Course Catalog</a>
+  </header>
+  <div class="main-calc">
+    <div class="calc-card">
+      <div class="history" id="calcHistory"></div>
+      <div class="display" id="calcScreen">0</div>
+      <div class="grid" id="calcGrid"></div>
+    </div>
+  </div>
+
+  <script>
+    const container = document.getElementById('calcGrid');
+    const screen = document.getElementById('calcScreen');
+    const history = document.getElementById('calcHistory');
+
+    const buttons = [
+      { label: 'C', class: 'clear', action: 'clear' },
+      { label: '(', class: 'op', action: 'insert', val: '(' },
+      { label: ')', class: 'op', action: 'insert', val: ')' },
+      { label: '÷', class: 'op', action: 'insert', val: '/' },
+
+      { label: 'sin', class: 'op', action: 'fn', fn: 'Math.sin' },
+      { label: 'cos', class: 'op', action: 'fn', fn: 'Math.cos' },
+      { label: 'tan', class: 'op', action: 'fn', fn: 'Math.tan' },
+      { label: '×', class: 'op', action: 'insert', val: '*' },
+
+      { label: '7', class: '', action: 'insert', val: '7' },
+      { label: '8', class: '', action: 'insert', val: '8' },
+      { label: '9', class: '', action: 'insert', val: '9' },
+      { label: '-', class: 'op', action: 'insert', val: '-' },
+
+      { label: '4', class: '', action: 'insert', val: '4' },
+      { label: '5', class: '', action: 'insert', val: '5' },
+      { label: '6', class: '', action: 'insert', val: '6' },
+      { label: '+', class: 'op', action: 'insert', val: '+' },
+
+      { label: '1', class: '', action: 'insert', val: '1' },
+      { label: '2', class: '', action: 'insert', val: '2' },
+      { label: '3', class: '', action: 'insert', val: '3' },
+      { label: '√', class: 'op', action: 'fn', fn: 'Math.sqrt' },
+
+      { label: '0', class: '', action: 'insert', val: '0' },
+      { label: '.', class: '', action: 'insert', val: '.' },
+      { label: '=', class: 'equal', action: 'eval' }
+    ];
+
+    let expr = "";
+    buttons.forEach(b => {
+      const btn = document.createElement('button');
+      btn.className = b.class;
+      btn.textContent = b.label;
+      btn.addEventListener('click', () => {
+        if (b.action === 'clear') {
+          expr = "";
+          screen.textContent = "0";
+          history.textContent = "";
+        } else if (b.action === 'insert') {
+          expr += b.val;
+          screen.textContent = expr;
+        } else if (b.action === 'fn') {
+          expr = `${b.fn}(${expr || '0'})`;
+          try {
+            const res = eval(expr);
+            history.textContent = expr;
+            expr = String(res);
+            screen.textContent = expr;
+          } catch {
+            screen.textContent = "Error";
+            expr = "";
+          }
+        } else if (b.action === 'eval') {
+          try {
+            history.textContent = expr + " =";
+            const clean = expr.replace(/×/g, '*').replace(/÷/g, '/');
+            const res = Function('"use strict";return (' + clean + ')')();
+            screen.textContent = Number.isInteger(res) ? res : Number(res.toFixed(6));
+            expr = String(res);
+          } catch {
+            screen.textContent = "Syntax Error";
+            expr = "";
+          }
+        }
+      });
+      container.appendChild(btn);
+    });
+  </script>
+</body>
+</html>

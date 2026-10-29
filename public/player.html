@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Calculus & Computational Laboratory | Department of Mathematics</title>
+  <!-- Math Sigma Favicon -->
+  <link rel="icon" id="pageFavicon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M18 4H6v2l6.5 6L6 18v2h12v-3h-7l5-4.5L11 8h7V4z'/%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --bg-color: #0d1117;
+      --panel-bg: #161b22;
+      --border-color: #30363d;
+      --text-main: #c9d1d9;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-hover: #1f6feb;
+      --danger: #f85149;
+      --success: #3fb950;
+      --header-height: 52px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-main);
+    }
+
+    /* Top Academic Header */
+    header {
+      height: var(--header-height);
+      background: var(--panel-bg);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      z-index: 100;
+      position: relative;
+      user-select: none;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .brand:hover {
+      opacity: 0.85;
+    }
+
+    .brand svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .breadcrumbs span.separator {
+      color: var(--border-color);
+    }
+
+    .breadcrumbs .module-code {
+      background: rgba(88, 166, 255, 0.15);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+      font-family: monospace;
+    }
+
+    .breadcrumbs .module-name {
+      color: var(--text-main);
+      font-weight: 500;
+      max-width: 320px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #21262d;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.825rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn:hover {
+      background: #30363d;
+      border-color: #8b949e;
+      color: #fff;
+    }
+
+    .btn svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+
+    .btn-panic {
+      background: rgba(248, 81, 73, 0.15);
+      border-color: rgba(248, 81, 73, 0.4);
+      color: #ff7b72;
+    }
+
+    .btn-panic:hover {
+      background: var(--danger);
+      border-color: var(--danger);
+      color: #fff;
+    }
+
+    .btn-panic .kbd {
+      background: rgba(0, 0, 0, 0.25);
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-family: monospace;
+      margin-left: 2px;
+    }
+
+    /* Main Viewport */
+    #main-viewport {
+      position: absolute;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #flash-container, #iframe-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    ruffle-player {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Loading Screen */
+    #loading-state {
+      position: absolute;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--bg-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      z-index: 50;
+    }
+
+    .spinner {
+      width: 44px;
+      height: 44px;
+      border: 3px solid rgba(88, 166, 255, 0.2);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* PANIC SCREEN (Stealth Math Mode) */
+    #panic-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      color: #1a1a1a;
+      z-index: 999999;
+      display: none;
+      flex-direction: column;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .panic-header {
+      background: #005a9c;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #004080;
+    }
+
+    .panic-header h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .panic-body {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      background: #f8f9fa;
+      height: calc(100vh - 54px);
+      overflow: hidden;
+    }
+
+    .calc-pane {
+      background: #ffffff;
+      border-right: 1px solid #dee2e6;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      overflow-y: auto;
+    }
+
+    .notes-pane {
+      padding: 2rem;
+      overflow-y: auto;
+      background: #f8f9fa;
+    }
+
+    /* Calculator Widget CSS */
+    .calc-screen {
+      background: #1e293b;
+      color: #38bdf8;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.5rem;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      text-align: right;
+      min-height: 54px;
+      word-break: break-all;
+      border: 1px solid #334155;
+    }
+
+    .calc-history {
+      font-size: 0.85rem;
+      color: #64748b;
+      min-height: 20px;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .calc-btn {
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: #f1f5f9;
+      color: #1e293b;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+
+    .calc-btn:hover {
+      background: #e2e8f0;
+    }
+
+    .calc-btn.op {
+      background: #e0f2fe;
+      color: #0284c7;
+      border-color: #bae6fd;
+    }
+
+    .calc-btn.equal {
+      background: #0284c7;
+      color: #fff;
+      border-color: #0284c7;
+      grid-column: span 2;
+    }
+
+    .calc-btn.clear {
+      background: #fee2e2;
+      color: #dc2626;
+      border-color: #fecaca;
+    }
+
+    /* Formula Reference Sheet */
+    .formula-section {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .formula-section h3 {
+      font-size: 1.05rem;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.4rem;
+    }
+
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .formula-item {
+      background: #f8fafc;
+      border: 1px solid #f1f5f9;
+      padding: 0.75rem;
+      border-radius: 6px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.15rem;
+      color: #1e293b;
+    }
+
+    .formula-item span.label {
+      display: block;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Slide-out Drawers */
+    .drawer {
+      position: fixed;
+      top: var(--header-height);
+      right: -420px;
+      width: 400px;
+      bottom: 0;
+      background: var(--panel-bg);
+      border-left: 1px solid var(--border-color);
+      box-shadow: -4px 0 24px rgba(0, 0, 0, 0.5);
+      transition: right 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawer.open {
+      right: 0;
+    }
+
+    .drawer-header {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .drawer-header h3 {
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .drawer-body {
+      padding: 1rem;
+      flex: 1;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Academic Department Header -->
+  <header>
+    <div class="nav-left">
+      <a href="/index.html" class="brand" title="Return to Course Catalog">
+        <svg viewBox="0 0 24 24"><path d="M18 4H6v2l6.5 6L6 18v2h12v-3h-7l5-4.5L11 8h7V4z"/></svg>
+        <span>Euler Math Lab</span>
+      </a>
+      <div class="breadcrumbs">
+        <span class="separator">/</span>
+        <span class="module-code" id="moduleCodeBadge">MATH-101</span>
+        <span class="separator">/</span>
+        <span class="module-name" id="moduleTitleDisplay">Loading laboratory module…</span>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <button class="btn" id="btnToggleCalc" title="Toggle Scientific Calculator">
+        <svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zm0 2v4h10V4H7zm0 6v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zm-8 4v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zm-8 4v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2z"/></svg>
+        <span>Calculator</span>
+      </button>
+
+      <button class="btn" id="btnToggleFormulas" title="Formula Reference Sheet">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14h-2v-4H8v-2h2V9h2v2h2v2h-2v4z"/></svg>
+        <span>Formulas</span>
+      </button>
+
+      <button class="btn" id="btnReload" title="Reload Module Simulation">
+        <svg viewBox="0 0 24 24"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+        <span>Reset</span>
+      </button>
+
+      <button class="btn" id="btnFullscreen" title="Toggle Fullscreen">
+        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+      </button>
+
+      <!-- Panic / Stealth Mode Button -->
+      <button class="btn btn-panic" id="btnPanic" title="Instant Stealth Cloak (Esc or ~)">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        <span>Exam Mode</span>
+        <span class="kbd">Esc</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Player Viewport -->
+  <main id="main-viewport">
+    <div id="flash-container"></div>
+    <div id="iframe-container" style="display: none;"></div>
+  </main>
+
+  <!-- Loading State -->
+  <div id="loading-state">
+    <div class="spinner"></div>
+    <p id="loadingText" style="font-size: 0.9rem; color: #8b949e;">Initializing mathematical model…</p>
+  </div>
+
+  <!-- PANIC / BOSS CLOAK SCREEN -->
+  <div id="panic-screen">
+    <div class="panic-header">
+      <h2>
+        <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zm0 2v4h10V4H7zm0 6v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zm-8 4v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zm-8 4v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2z"/></svg>
+        Desmos Scientific Calculator & Study Notes
+      </h2>
+      <button class="btn" id="btnExitPanic" style="background:#ffffff; color:#005a9c; font-weight:600;">
+        Resume Module Study (Esc)
+      </button>
+    </div>
+    <div class="panic-body">
+      <!-- Embedded Scientific Calculator -->
+      <div class="calc-pane">
+        <h3 style="font-size: 1rem; color:#334155;">Scientific Computation</h3>
+        <div class="calc-history" id="panicCalcHistory"></div>
+        <div class="calc-screen" id="panicCalcScreen">0</div>
+        <div class="calc-grid" id="panicCalcButtons">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Authentic Math Notes -->
+      <div class="notes-pane">
+        <div class="formula-section">
+          <h3>Calculus — Fundamental Derivatives & Integrals</h3>
+          <div class="formula-grid">
+            <div class="formula-item"><span class="label">Power Rule</span>d/dx[xⁿ] = n·xⁿ⁻¹</div>
+            <div class="formula-item"><span class="label">Exponential</span>d/dx[eˣ] = eˣ</div>
+            <div class="formula-item"><span class="label">Natural Log</span>d/dx[ln(x)] = 1/x</div>
+            <div class="formula-item"><span class="label">Sine</span>d/dx[sin(x)] = cos(x)</div>
+            <div class="formula-item"><span class="label">Cosine</span>d/dx[cos(x)] = -sin(x)</div>
+            <div class="formula-item"><span class="label">Tangent</span>d/dx[tan(x)] = sec²(x)</div>
+            <div class="formula-item"><span class="label">Integral Power</span>∫ xⁿ dx = (xⁿ⁺¹)/(n+1) + C</div>
+            <div class="formula-item"><span class="label">Log Integral</span>∫ 1/x dx = ln|x| + C</div>
+          </div>
+        </div>
+
+        <div class="formula-section">
+          <h3>Kinematics & Dynamics Differential Equations</h3>
+          <div class="formula-grid">
+            <div class="formula-item"><span class="label">Velocity</span>v(t) = v₀ + a·t</div>
+            <div class="formula-item"><span class="label">Displacement</span>s(t) = s₀ + v₀·t + ½·a·t²</div>
+            <div class="formula-item"><span class="label">Work-Energy</span>v² = v₀² + 2·a·Δs</div>
+            <div class="formula-item"><span class="label">Centripetal Accel</span>a_c = v² / r = ω²·r</div>
+            <div class="formula-item"><span class="label">Harmonic Motion</span>F = -k·x = m·(d²x/dt²)</div>
+            <div class="formula-item"><span class="label">Momentum</span>p = m·v, Δp = F_net·Δt</div>
+          </div>
+        </div>
+
+        <div class="formula-section">
+          <h3>Trigonometric Identities & Values</h3>
+          <div class="formula-grid">
+            <div class="formula-item"><span class="label">Pythagorean</span>sin²(θ) + cos²(θ) = 1</div>
+            <div class="formula-item"><span class="label">Double Angle</span>sin(2θ) = 2·sin(θ)cos(θ)</div>
+            <div class="formula-item"><span class="label">Double Angle</span>cos(2θ) = cos²(θ) - sin²(θ)</div>
+            <div class="formula-item"><span class="label">Euler's Formula</span>e^(iθ) = cos(θ) + i·sin(θ)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Side Drawer: Quick Calculator -->
+  <div class="drawer" id="calcDrawer">
+    <div class="drawer-header">
+      <h3>Scientific Calculator</h3>
+      <button class="btn" id="btnCloseCalc">✕</button>
+    </div>
+    <div class="drawer-body">
+      <div class="calc-history" id="drawerCalcHistory" style="color:#8b949e;margin-bottom:4px;text-align:right;"></div>
+      <div class="calc-screen" id="drawerCalcScreen" style="background:#0d1117;color:#58a6ff;margin-bottom:1rem;">0</div>
+      <div class="calc-grid" id="drawerCalcButtons"></div>
+    </div>
+  </div>
+
+  <!-- Side Drawer: Formula Reference -->
+  <div class="drawer" id="formulaDrawer" style="width: 440px;">
+    <div class="drawer-header">
+      <h3>Formula Reference Sheet</h3>
+      <button class="btn" id="btnCloseFormulas">✕</button>
+    </div>
+    <div class="drawer-body" style="font-size: 0.9rem;">
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="color:var(--accent);margin-bottom:0.5rem;">Differential Calculus</h4>
+        <p style="font-family:serif;font-size:1.1rem;background:#21262d;padding:0.6rem;border-radius:6px;margin-bottom:0.4rem;">d/dx [f(g(x))] = f'(g(x)) · g'(x)</p>
+        <p style="font-family:serif;font-size:1.1rem;background:#21262d;padding:0.6rem;border-radius:6px;margin-bottom:0.4rem;">d/dx [u · v] = u'v + uv'</p>
+        <p style="font-family:serif;font-size:1.1rem;background:#21262d;padding:0.6rem;border-radius:6px;">d/dx [u / v] = (u'v - uv') / v²</p>
+      </div>
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="color:var(--accent);margin-bottom:0.5rem;">Vector Operations</h4>
+        <p style="font-family:serif;font-size:1.1rem;background:#21262d;padding:0.6rem;border-radius:6px;margin-bottom:0.4rem;">A · B = |A||B| cos(θ)</p>
+        <p style="font-family:serif;font-size:1.1rem;background:#21262d;padding:0.6rem;border-radius:6px;">|A × B| = |A||B| sin(θ)</p>
+      </div>
+      <div>
+        <h4 style="color:var(--accent);margin-bottom:0.5rem;">Useful Constants</h4>
+        <p style="color:#8b949e;line-height:1.6;">
+          π ≈ 3.14159265<br>
+          e ≈ 2.71828182<br>
+          g ≈ 9.80665 m/s²<br>
+          c ≈ 2.9979 × 10⁸ m/s
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ruffle Flash Engine -->
+  <script src="/assets/ruffle.rs/ruffle.js"></script>
+
+  <script>
+    // Extract Game ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    let gameId = urlParams.get('id') || urlParams.get('game');
+    
+    // Fallback: check path like /play/bloonstd
+    if (!gameId) {
+      const match = window.location.pathname.match(/\/play\/([^\/]+)/);
+      if (match) gameId = match[1];
+    }
+
+    let currentGame = null;
+    let rufflePlayerInstance = null;
+    let isPanicActive = false;
+
+    // Normal and disguised page titles
+    let normalTitle = "Department of Mathematics | Simulation Lab";
+    const panicTitle = "Desmos Scientific Calculator | Online Practice";
+
+    /* ---------- FETCH GAME METADATA FROM API ---------- */
+    async function loadGame() {
+      if (!gameId) {
+        showError("No module specified. Please return to the curriculum.");
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/games?id=${encodeURIComponent(gameId)}`);
+        const data = await res.json();
+
+        if (!data.success || !data.game) {
+          showError(`Module "${gameId}" could not be located in curriculum.`);
+          return;
+        }
+
+        currentGame = data.game;
+        setupUI(currentGame);
+        launchSimulation(currentGame);
+      } catch (err) {
+        console.error("API load failed, trying fallback:", err);
+        // Fallback for direct local offline testing
+        showError("Unable to connect to course catalog API.");
+      }
+    }
+
+    /* ---------- SETUP ACADEMIC DISGUISE UI ---------- */
+    function setupUI(game) {
+      document.getElementById('moduleCodeBadge').textContent = game.courseCode || 'MATH-101';
+      document.getElementById('moduleTitleDisplay').textContent = game.shortMathTitle || game.title;
+      document.getElementById('moduleTitleDisplay').title = game.description || '';
+
+      normalTitle = `${game.courseCode}: ${game.shortMathTitle} | Online Maths Club`;
+      document.title = normalTitle;
+
+      // Update recent games in localStorage
+      try {
+        let recent = JSON.parse(localStorage.getItem("recentGames") || "[]");
+        recent = recent.filter(v => v.toLowerCase() !== game.title.toLowerCase() && v.toLowerCase() !== (game.mathTitle || '').toLowerCase());
+        recent.unshift(game.title);
+        if (recent.length > 25) recent.length = 25;
+        localStorage.setItem("recentGames", JSON.stringify(recent));
+      } catch (_) {}
+    }
+
+    /* ---------- LAUNCH GAME (FLASH OR WEBGL) ---------- */
+    function launchSimulation(game) {
+      const loadingState = document.getElementById('loading-state');
+      const flashContainer = document.getElementById('flash-container');
+      const iframeContainer = document.getElementById('iframe-container');
+
+      if (game.type === 'unity' || game.type === 'webgl') {
+        flashContainer.style.display = 'none';
+        iframeContainer.style.display = 'flex';
+        iframeContainer.innerHTML = `<iframe src="${game.file}" allowfullscreen="true" scrolling="no"></iframe>`;
+        loadingState.style.display = 'none';
+      } else {
+        // Flash via Ruffle
+        iframeContainer.style.display = 'none';
+        flashContainer.style.display = 'flex';
+        
+        try {
+          const ruffle = window.RufflePlayer?.newest() || window.RufflePlayer?.createPlayer();
+          if (!ruffle) throw new Error("Ruffle runtime not available");
+
+          flashContainer.innerHTML = "";
+          rufflePlayerInstance = ruffle.createPlayer();
+          rufflePlayerInstance.style.width = "100%";
+          rufflePlayerInstance.style.height = "100%";
+          flashContainer.appendChild(rufflePlayerInstance);
+
+          // Configure Ruffle
+          rufflePlayerInstance.config = {
+            letterbox: "on",
+            autoplay: "on",
+            unmuteOverlay: "hidden",
+            warnOnUnsupportedContent: false
+          };
+
+          rufflePlayerInstance.load(game.file).then(() => {
+            loadingState.style.display = 'none';
+          }).catch(err => {
+            console.error("Ruffle load error:", err);
+            loadingState.innerHTML = `<p style="color:#f85149">Failed to load Flash asset: ${err.message}</p>`;
+          });
+        } catch (e) {
+          loadingState.innerHTML = `<p style="color:#f85149">Ruffle engine error: ${e.message}</p>`;
+        }
+      }
+    }
+
+    function showError(msg) {
+      const loading = document.getElementById('loading-state');
+      loading.innerHTML = `
+        <p style="color:#f85149;font-weight:600;font-size:1.1rem;">Module Not Found</p>
+        <p style="color:#8b949e;margin-top:0.5rem;">${msg}</p>
+        <a href="/index.html" class="btn" style="margin-top:1rem;">Back to Curriculum</a>
+      `;
+    }
+
+    /* ---------- PANIC / STEALTH MODE (BOSS KEY) ---------- */
+    function togglePanicMode() {
+      isPanicActive = !isPanicActive;
+      const panicScreen = document.getElementById('panic-screen');
+      const favicon = document.getElementById('pageFavicon');
+
+      if (isPanicActive) {
+        panicScreen.style.display = 'flex';
+        document.title = panicTitle;
+        // Calculator favicon
+        favicon.href = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23005a9c'%3E%3Cpath d='M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zm0 2v4h10V4H7zm0 6v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zm-8 4v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2z'/%3E%3C/svg%3E";
+
+        // Mute/Pause Ruffle if running
+        try {
+          if (rufflePlayerInstance && rufflePlayerInstance.pause) {
+            rufflePlayerInstance.pause();
+          }
+        } catch (_) {}
+      } else {
+        panicScreen.style.display = 'none';
+        document.title = normalTitle;
+        favicon.href = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M18 4H6v2l6.5 6L6 18v2h12v-3h-7l5-4.5L11 8h7V4z'/%3E%3C/svg%3E";
+
+        try {
+          if (rufflePlayerInstance && rufflePlayerInstance.play) {
+            rufflePlayerInstance.play();
+          }
+        } catch (_) {}
+      }
+    }
+
+    // Keyboard Hotkeys: Esc or Backtick (`)
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' || e.key === '`') {
+        e.preventDefault();
+        togglePanicMode();
+      }
+    });
+
+    document.getElementById('btnPanic').addEventListener('click', togglePanicMode);
+    document.getElementById('btnExitPanic').addEventListener('click', togglePanicMode);
+
+    /* ---------- SCIENTIFIC CALCULATOR IMPLEMENTATION ---------- */
+    function setupCalculator(containerId, screenId, historyId) {
+      const container = document.getElementById(containerId);
+      const screen = document.getElementById(screenId);
+      const history = document.getElementById(historyId);
+
+      const buttons = [
+        { label: 'C', class: 'clear', action: 'clear' },
+        { label: '(', class: 'op', action: 'insert', val: '(' },
+        { label: ')', class: 'op', action: 'insert', val: ')' },
+        { label: '÷', class: 'op', action: 'insert', val: '/' },
+
+        { label: 'sin', class: 'op', action: 'fn', fn: 'Math.sin' },
+        { label: 'cos', class: 'op', action: 'fn', fn: 'Math.cos' },
+        { label: 'tan', class: 'op', action: 'fn', fn: 'Math.tan' },
+        { label: '×', class: 'op', action: 'insert', val: '*' },
+
+        { label: '7', class: '', action: 'insert', val: '7' },
+        { label: '8', class: '', action: 'insert', val: '8' },
+        { label: '9', class: '', action: 'insert', val: '9' },
+        { label: '-', class: 'op', action: 'insert', val: '-' },
+
+        { label: '4', class: '', action: 'insert', val: '4' },
+        { label: '5', class: '', action: 'insert', val: '5' },
+        { label: '6', class: '', action: 'insert', val: '6' },
+        { label: '+', class: 'op', action: 'insert', val: '+' },
+
+        { label: '1', class: '', action: 'insert', val: '1' },
+        { label: '2', class: '', action: 'insert', val: '2' },
+        { label: '3', class: '', action: 'insert', val: '3' },
+        { label: '√', class: 'op', action: 'fn', fn: 'Math.sqrt' },
+
+        { label: '0', class: '', action: 'insert', val: '0' },
+        { label: '.', class: '', action: 'insert', val: '.' },
+        { label: '=', class: 'equal', action: 'eval' }
+      ];
+
+      let expression = "";
+
+      buttons.forEach(b => {
+        const btn = document.createElement('button');
+        btn.className = `calc-btn ${b.class}`;
+        btn.textContent = b.label;
+        btn.addEventListener('click', () => {
+          if (b.action === 'clear') {
+            expression = "";
+            screen.textContent = "0";
+            history.textContent = "";
+          } else if (b.action === 'insert') {
+            expression += b.val;
+            screen.textContent = expression;
+          } else if (b.action === 'fn') {
+            expression = `${b.fn}(${expression || '0'})`;
+            try {
+              const res = eval(expression);
+              history.textContent = expression;
+              expression = String(res);
+              screen.textContent = expression;
+            } catch {
+              screen.textContent = "Error";
+              expression = "";
+            }
+          } else if (b.action === 'eval') {
+            try {
+              history.textContent = expression + " =";
+              const clean = expression.replace(/×/g, '*').replace(/÷/g, '/');
+              const res = Function('"use strict";return (' + clean + ')')();
+              screen.textContent = Number.isInteger(res) ? res : Number(res.toFixed(6));
+              expression = String(res);
+            } catch {
+              screen.textContent = "Syntax Error";
+              expression = "";
+            }
+          }
+        });
+        container.appendChild(btn);
+      });
+    }
+
+    // Initialize both panic and drawer calculators
+    setupCalculator('panicCalcButtons', 'panicCalcScreen', 'panicCalcHistory');
+    setupCalculator('drawerCalcButtons', 'drawerCalcScreen', 'drawerCalcHistory');
+
+    /* ---------- DRAWERS & CONTROLS ---------- */
+    const calcDrawer = document.getElementById('calcDrawer');
+    const formulaDrawer = document.getElementById('formulaDrawer');
+
+    document.getElementById('btnToggleCalc').addEventListener('click', () => {
+      calcDrawer.classList.toggle('open');
+      formulaDrawer.classList.remove('open');
+    });
+
+    document.getElementById('btnCloseCalc').addEventListener('click', () => {
+      calcDrawer.classList.remove('open');
+    });
+
+    document.getElementById('btnToggleFormulas').addEventListener('click', () => {
+      formulaDrawer.classList.toggle('open');
+      calcDrawer.classList.remove('open');
+    });
+
+    document.getElementById('btnCloseFormulas').addEventListener('click', () => {
+      formulaDrawer.classList.remove('open');
+    });
+
+    // Reset button
+    document.getElementById('btnReload').addEventListener('click', () => {
+      if (currentGame) launchSimulation(currentGame);
+    });
+
+    // Fullscreen toggle
+    document.getElementById('btnFullscreen').addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    });
+
+    // Start on DOM ready
+    window.addEventListener('DOMContentLoaded', loadGame);
+  </script>
+</body>
+</html>
