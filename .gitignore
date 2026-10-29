@@ -143,3 +143,5 @@ node_modules/
 desktop.ini
 public/assets/unity/fpsdemo/
 test.md
+.vercel
+.env*

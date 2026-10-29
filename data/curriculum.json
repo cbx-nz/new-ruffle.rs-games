@@ -1,0 +1,1369 @@
+[
+  {
+    "id": "soldierdiary",
+    "title": "Soldier Diary",
+    "mathTitle": "Kinematics & Tactical Vectors (Soldier Diary)",
+    "shortMathTitle": "Kinematics & Tactical Vectors",
+    "courseCode": "PHYS-101",
+    "category": "Kinematics & Dynamics",
+    "description": "Ballistic trajectories, velocity vectors, and coordinate navigation modeling.",
+    "type": "flash",
+    "file": "/assets/swf/599406_soldierdiary.swf",
+    "playerUrl": "/module.html?id=soldierdiary",
+    "legacyUrl": "./players/soldierdiary.html",
+    "tags": [
+      "shooter",
+      "vectors",
+      "physics",
+      "action"
+    ],
+    "moduleUrl": "/module.html?id=soldierdiary",
+    "lessonUrl": "/module.html?id=soldierdiary"
+  },
+  {
+    "id": "pcbreakdown",
+    "title": "PC Breakdown",
+    "mathTitle": "Mechanical Stress & Impulse Mechanics (PC Breakdown)",
+    "shortMathTitle": "Mechanical Stress & Impulse Mechanics",
+    "courseCode": "MECH-202",
+    "category": "Kinematics & Dynamics",
+    "description": "Impact force distribution, momentum transfer, and structural fatigue analysis.",
+    "type": "flash",
+    "file": "/assets/swf/pc_breakdown.swf",
+    "playerUrl": "/module.html?id=pcbreakdown",
+    "legacyUrl": "./players/pcbreakdown.html",
+    "tags": [
+      "classic",
+      "stress-testing",
+      "interactive"
+    ],
+    "moduleUrl": "/module.html?id=pcbreakdown",
+    "lessonUrl": "/module.html?id=pcbreakdown"
+  },
+  {
+    "id": "minicommando",
+    "title": "Mini Commando",
+    "mathTitle": "Projectile Motion & Differential Trajectories (Mini Commando)",
+    "shortMathTitle": "Projectile Motion & Differential Trajectories",
+    "courseCode": "PHYS-112",
+    "category": "Kinematics & Dynamics",
+    "description": "Multivariable coordinate calculations and dynamic projectile velocity.",
+    "type": "flash",
+    "file": "/assets/swf/619317_minicommando.swf",
+    "playerUrl": "/module.html?id=minicommando",
+    "legacyUrl": "./players/minicommando.html",
+    "tags": [
+      "action",
+      "platformer",
+      "shooting"
+    ],
+    "moduleUrl": "/module.html?id=minicommando",
+    "lessonUrl": "/module.html?id=minicommando"
+  },
+  {
+    "id": "papaspizzeria",
+    "title": "Papa's Pizzeria",
+    "mathTitle": "Queueing Theory & Resource Scheduling (Papa's Pizzeria)",
+    "shortMathTitle": "Queueing Theory & Resource Scheduling",
+    "courseCode": "MATH-240",
+    "category": "Resource Optimization",
+    "description": "Order sequencing, FIFO queue optimization, and geometric topping distribution.",
+    "type": "flash",
+    "file": "/assets/swf/papaspizzeria_v2.swf",
+    "playerUrl": "/module.html?id=papaspizzeria",
+    "legacyUrl": "./players/papaspizzeria.html",
+    "tags": [
+      "papa",
+      "management",
+      "simulation",
+      "pizzeria"
+    ],
+    "moduleUrl": "/module.html?id=papaspizzeria",
+    "lessonUrl": "/module.html?id=papaspizzeria"
+  },
+  {
+    "id": "bloxorz",
+    "title": "Bloxorz",
+    "mathTitle": "Orthogonal Matrix Rotations & Spatial Topology (Bloxorz)",
+    "shortMathTitle": "Orthogonal Matrix Rotations & Spatial Topology",
+    "courseCode": "MATH-310",
+    "category": "Spatial Geometry & Topology",
+    "description": "3D cuboid rotation matrices, grid coordinate limits, and discrete spatial paths.",
+    "type": "flash",
+    "file": "/assets/swf/bloxorz.swf",
+    "playerUrl": "/module.html?id=bloxorz",
+    "legacyUrl": "./players/bloxorz.html",
+    "tags": [
+      "puzzle",
+      "geometry",
+      "logic",
+      "3d"
+    ],
+    "moduleUrl": "/module.html?id=bloxorz",
+    "lessonUrl": "/module.html?id=bloxorz"
+  },
+  {
+    "id": "bloonstd",
+    "title": "Bloons Tower Defense",
+    "mathTitle": "Vector Range Optimization & Rate of Change (Bloons TD)",
+    "shortMathTitle": "Vector Range Optimization & Rate of Change",
+    "courseCode": "CALC-205",
+    "category": "Kinematics & Dynamics",
+    "description": "Spatial radial coverage, intersecting fire cones, and cost-benefit differential curves.",
+    "type": "flash",
+    "file": "/assets/swf/bloonstd.swf",
+    "playerUrl": "/module.html?id=bloonstd",
+    "legacyUrl": "./players/bloonstd.html",
+    "tags": [
+      "tower defense",
+      "strategy",
+      "classic"
+    ],
+    "moduleUrl": "/module.html?id=bloonstd",
+    "lessonUrl": "/module.html?id=bloonstd"
+  },
+  {
+    "id": "bloonstd2",
+    "title": "Bloons Tower Defense 2",
+    "mathTitle": "Multivariate Flow Networks & Radial Coverage II (Bloons TD 2)",
+    "shortMathTitle": "Multivariate Flow Networks & Radial Coverage II",
+    "courseCode": "CALC-206",
+    "category": "Kinematics & Dynamics",
+    "description": "Non-linear balloon wave distributions and multi-target trajectory equations.",
+    "type": "flash",
+    "file": "/assets/swf/bloonstd2.swf",
+    "playerUrl": "/module.html?id=bloonstd2",
+    "legacyUrl": "./players/bloonstd2.html",
+    "tags": [
+      "tower defense",
+      "strategy",
+      "classic"
+    ],
+    "moduleUrl": "/module.html?id=bloonstd2",
+    "lessonUrl": "/module.html?id=bloonstd2"
+  },
+  {
+    "id": "factoryballs",
+    "title": "Factory Balls",
+    "mathTitle": "Set Theory & Boolean Mask Transformations (Factory Balls)",
+    "shortMathTitle": "Set Theory & Boolean Mask Transformations",
+    "courseCode": "DISC-101",
+    "category": "Computational Logic",
+    "description": "Sequential set operations, geometric mask layering, and order-dependent boolean logic.",
+    "type": "flash",
+    "file": "/assets/swf/factoryballs.swf",
+    "playerUrl": "/module.html?id=factoryballs",
+    "legacyUrl": "./players/factoryballs.html",
+    "tags": [
+      "puzzle",
+      "logic",
+      "thinking"
+    ],
+    "moduleUrl": "/module.html?id=factoryballs",
+    "lessonUrl": "/module.html?id=factoryballs"
+  },
+  {
+    "id": "factoryballs2",
+    "title": "Factory Balls 2",
+    "mathTitle": "Recursive Topological Layering (Factory Balls 2)",
+    "shortMathTitle": "Recursive Topological Layering",
+    "courseCode": "DISC-102",
+    "category": "Computational Logic",
+    "description": "Higher-order state permutations and inverse mask layering algorithms.",
+    "type": "flash",
+    "file": "/assets/swf/factoryballs2.swf",
+    "playerUrl": "/module.html?id=factoryballs2",
+    "legacyUrl": "./players/factoryballs2.html",
+    "tags": [
+      "puzzle",
+      "logic",
+      "thinking"
+    ],
+    "moduleUrl": "/module.html?id=factoryballs2",
+    "lessonUrl": "/module.html?id=factoryballs2"
+  },
+  {
+    "id": "whackyourboss",
+    "title": "Whack your Boss",
+    "mathTitle": "Combinatorial Object Permutations (Whack your Boss)",
+    "shortMathTitle": "Combinatorial Object Permutations",
+    "courseCode": "STAT-150",
+    "category": "Computational Logic",
+    "description": "Finite state enumeration and interactive item permutation mapping.",
+    "type": "flash",
+    "file": "/assets/swf/dont_whack_your_boss.swf",
+    "playerUrl": "/module.html?id=whackyourboss",
+    "legacyUrl": "./players/whackyourboss.html",
+    "tags": [
+      "interactive",
+      "humor",
+      "point and click"
+    ],
+    "moduleUrl": "/module.html?id=whackyourboss",
+    "lessonUrl": "/module.html?id=whackyourboss"
+  },
+  {
+    "id": "whackyourcomputer",
+    "title": "Whack your Computer",
+    "mathTitle": "Discrete State Permutations & Graph Search (Whack your Computer)",
+    "shortMathTitle": "Discrete State Permutations & Graph Search",
+    "courseCode": "STAT-151",
+    "category": "Computational Logic",
+    "description": "Environmental interaction graphs and discrete event triggers.",
+    "type": "flash",
+    "file": "/assets/swf/whack_your_computer.swf",
+    "playerUrl": "/module.html?id=whackyourcomputer",
+    "legacyUrl": "./players/whackyourcomputer.html",
+    "tags": [
+      "interactive",
+      "humor",
+      "point and click"
+    ],
+    "moduleUrl": "/module.html?id=whackyourcomputer",
+    "lessonUrl": "/module.html?id=whackyourcomputer"
+  },
+  {
+    "id": "steakandjake",
+    "title": "Steak and Jake",
+    "mathTitle": "Chromatic Matching & Vector Pathing (Steak and Jake)",
+    "shortMathTitle": "Chromatic Matching & Vector Pathing",
+    "courseCode": "MATH-115",
+    "category": "Computational Logic",
+    "description": "Color frequency spectrum matching, obstacle clearance, and speed-distance curves.",
+    "type": "flash",
+    "file": "/assets/swf/steakandjake_freeversion.swf",
+    "playerUrl": "/module.html?id=steakandjake",
+    "legacyUrl": "./players/steakandjake.html",
+    "tags": [
+      "puzzle",
+      "platformer",
+      "matching"
+    ],
+    "moduleUrl": "/module.html?id=steakandjake",
+    "lessonUrl": "/module.html?id=steakandjake"
+  },
+  {
+    "id": "sugarsugar",
+    "title": "Sugar Sugar",
+    "mathTitle": "Granular Particle Dynamics & Flow Fields (Sugar Sugar)",
+    "shortMathTitle": "Granular Particle Dynamics & Flow Fields",
+    "courseCode": "PHYS-305",
+    "category": "Fluid & Thermodynamics",
+    "description": "Continuous granular particle simulation, gravity acceleration, and surface boundary deflection.",
+    "type": "flash",
+    "file": "/assets/swf/SugarSugar.swf",
+    "playerUrl": "/module.html?id=sugarsugar",
+    "legacyUrl": "./players/sugarsugar.html",
+    "tags": [
+      "physics",
+      "drawing",
+      "puzzle",
+      "particles"
+    ],
+    "moduleUrl": "/module.html?id=sugarsugar",
+    "lessonUrl": "/module.html?id=sugarsugar"
+  },
+  {
+    "id": "sugarsugar2",
+    "title": "Sugar Sugar 2",
+    "mathTitle": "Multi-Phase Granular Fluid Dynamics (Sugar Sugar 2)",
+    "shortMathTitle": "Multi-Phase Granular Fluid Dynamics",
+    "courseCode": "PHYS-306",
+    "category": "Fluid & Thermodynamics",
+    "description": "Multivariate particle streams, chromatic color filters, and dynamic funnel vectors.",
+    "type": "flash",
+    "file": "/assets/swf/SugarSugar2.swf",
+    "playerUrl": "/module.html?id=sugarsugar2",
+    "legacyUrl": "./players/sugarsugar2.html",
+    "tags": [
+      "physics",
+      "drawing",
+      "puzzle",
+      "particles"
+    ],
+    "moduleUrl": "/module.html?id=sugarsugar2",
+    "lessonUrl": "/module.html?id=sugarsugar2"
+  },
+  {
+    "id": "airporttycoon",
+    "title": "Airport Tycoon",
+    "mathTitle": "Linear Programming & Capital Allocation (Airport Tycoon)",
+    "shortMathTitle": "Linear Programming & Capital Allocation",
+    "courseCode": "ECON-310",
+    "category": "Resource Optimization",
+    "description": "Capital expenditure optimization, revenue projection models, and throughput analysis.",
+    "type": "flash",
+    "file": "/assets/swf/airport-tycoon.swf",
+    "playerUrl": "/module.html?id=airporttycoon",
+    "legacyUrl": "./players/airporttycoon.html",
+    "tags": [
+      "tycoon",
+      "strategy",
+      "management"
+    ],
+    "moduleUrl": "/module.html?id=airporttycoon",
+    "lessonUrl": "/module.html?id=airporttycoon"
+  },
+  {
+    "id": "jacksmith",
+    "title": "Jack Smith",
+    "mathTitle": "Metallurgical Proportions & Crafting Optimization (Jack Smith)",
+    "shortMathTitle": "Metallurgical Proportions & Crafting Optimization",
+    "courseCode": "CHEM-205",
+    "category": "Resource Optimization",
+    "description": "Thermodynamic metal pouring precision, blade balance symmetry, and weapon physics.",
+    "type": "flash",
+    "file": "/assets/swf/jacksmith.swf",
+    "playerUrl": "/module.html?id=jacksmith",
+    "legacyUrl": "./players/jacksmith.html",
+    "tags": [
+      "crafting",
+      "strategy",
+      "flipline"
+    ],
+    "moduleUrl": "/module.html?id=jacksmith",
+    "lessonUrl": "/module.html?id=jacksmith"
+  },
+  {
+    "id": "papasfreezeria",
+    "title": "Papa's Freezeria",
+    "mathTitle": "Continuous Ratio Blending & Service Throughput (Papa's Freezeria)",
+    "shortMathTitle": "Continuous Ratio Blending & Service Throughput",
+    "courseCode": "MATH-242",
+    "category": "Resource Optimization",
+    "description": "Volume-ratio precision, mixing time derivatives, and multi-customer queue prioritization.",
+    "type": "flash",
+    "file": "/assets/swf/papasfreezeria.swf",
+    "playerUrl": "/module.html?id=papasfreezeria",
+    "legacyUrl": "./players/papasfreezeria.html",
+    "tags": [
+      "papa",
+      "freezeria",
+      "management",
+      "simulation"
+    ],
+    "moduleUrl": "/module.html?id=papasfreezeria",
+    "lessonUrl": "/module.html?id=papasfreezeria"
+  },
+  {
+    "id": "papasburgeria",
+    "title": "Papa's Burgeria",
+    "mathTitle": "Thermal Equilibrium & Stacking Geometry (Papa's Burgeria)",
+    "shortMathTitle": "Thermal Equilibrium & Stacking Geometry",
+    "courseCode": "MATH-241",
+    "category": "Resource Optimization",
+    "description": "Grilling heat dissipation curves, vertical center-of-mass burger stacking alignment.",
+    "type": "flash",
+    "file": "/assets/swf/papasburgeria.swf",
+    "playerUrl": "/module.html?id=papasburgeria",
+    "legacyUrl": "./players/papasburgeria.html",
+    "tags": [
+      "papa",
+      "burgeria",
+      "management",
+      "cooking"
+    ],
+    "moduleUrl": "/module.html?id=papasburgeria",
+    "lessonUrl": "/module.html?id=papasburgeria"
+  },
+  {
+    "id": "talkingtomcat2",
+    "title": "Talking Tom Cat 2",
+    "mathTitle": "Acoustic Signal Processing & Frequency Pitch Shifting (Talking Tom 2)",
+    "shortMathTitle": "Acoustic Signal Processing & Frequency Pitch Shifting",
+    "courseCode": "ELEC-210",
+    "category": "Computational Logic",
+    "description": "Fast Fourier transforms, harmonic frequency modulation, and audio response waveforms.",
+    "type": "flash",
+    "file": "/assets/swf/talking_tom_cat_2.swf",
+    "playerUrl": "/module.html?id=talkingtomcat2",
+    "legacyUrl": "./players/talkingtomcat2.html",
+    "tags": [
+      "interactive",
+      "audio",
+      "humor"
+    ],
+    "moduleUrl": "/module.html?id=talkingtomcat2",
+    "lessonUrl": "/module.html?id=talkingtomcat2"
+  },
+  {
+    "id": "americanapplepie",
+    "title": "American Apple Pie",
+    "mathTitle": "Volumetric Ingredient Proportions & Thermal Timing (Apple Pie)",
+    "shortMathTitle": "Volumetric Ingredient Proportions & Thermal Timing",
+    "courseCode": "MATH-105",
+    "category": "Resource Optimization",
+    "description": "Volume-to-mass conversions, baking heat curves, and precise recipe scheduling.",
+    "type": "flash",
+    "file": "/assets/swf/american_apple_pie.swf",
+    "playerUrl": "/module.html?id=americanapplepie",
+    "legacyUrl": "./players/americanapplepie.html",
+    "tags": [
+      "cooking",
+      "baking",
+      "casual"
+    ],
+    "moduleUrl": "/module.html?id=americanapplepie",
+    "lessonUrl": "/module.html?id=americanapplepie"
+  },
+  {
+    "id": "chemistryset",
+    "title": "Nick Jr. Chemistry Set",
+    "mathTitle": "Stoichiometry & Chemical Reaction Kinetics (Chemistry Set)",
+    "shortMathTitle": "Stoichiometry & Chemical Reaction Kinetics",
+    "courseCode": "CHEM-101",
+    "category": "Fluid & Thermodynamics",
+    "description": "Interactive beaker titration, molecular compound reactions, and reaction colorimetry.",
+    "type": "flash",
+    "file": "/assets/swf/chemistryset.swf",
+    "playerUrl": "/module.html?id=chemistryset",
+    "legacyUrl": "./players/chemistryset.html",
+    "tags": [
+      "chemistry",
+      "educational",
+      "kids"
+    ],
+    "moduleUrl": "/module.html?id=chemistryset",
+    "lessonUrl": "/module.html?id=chemistryset"
+  },
+  {
+    "id": "oggymoshi",
+    "title": "Oggy Moshi",
+    "mathTitle": "Spatial Avoidance & Velocity Tracking (Oggy Moshi)",
+    "shortMathTitle": "Spatial Avoidance & Velocity Tracking",
+    "courseCode": "MATH-108",
+    "category": "Kinematics & Dynamics",
+    "description": "Continuous coordinate chasing, boundary reflection, and proximity metrics.",
+    "type": "flash",
+    "file": "/assets/swf/oggymoshi.swf",
+    "playerUrl": "/module.html?id=oggymoshi",
+    "legacyUrl": "./players/oggymoshi.html",
+    "tags": [
+      "arcade",
+      "casual"
+    ],
+    "moduleUrl": "/module.html?id=oggymoshi",
+    "lessonUrl": "/module.html?id=oggymoshi"
+  },
+  {
+    "id": "earntodie",
+    "title": "Earn To Die",
+    "mathTitle": "Kinetic Energy Conservation & Vehicle Dynamics (Earn To Die)",
+    "shortMathTitle": "Kinetic Energy Conservation & Vehicle Dynamics",
+    "courseCode": "PHYS-210",
+    "category": "Kinematics & Dynamics",
+    "description": "Rotational wheel torque, mass center displacement, fuel burn rates, and zombie obstacle drag.",
+    "type": "flash",
+    "file": "/assets/swf/ETD.swf",
+    "playerUrl": "/module.html?id=earntodie",
+    "legacyUrl": "./players/earntodie.html",
+    "tags": [
+      "driving",
+      "upgrade",
+      "zombies",
+      "physics"
+    ],
+    "moduleUrl": "/module.html?id=earntodie",
+    "lessonUrl": "/module.html?id=earntodie"
+  },
+  {
+    "id": "penguindiner",
+    "title": "Penguin Diner",
+    "mathTitle": "Stochastic Arrival Times & Service Rate Queuing (Penguin Diner)",
+    "shortMathTitle": "Stochastic Arrival Times & Service Rate Queuing",
+    "courseCode": "MATH-245",
+    "category": "Resource Optimization",
+    "description": "M/M/1 queuing modeling, seating allocation efficiency, and path length minimization.",
+    "type": "flash",
+    "file": "/assets/swf/penguin-diner.swf",
+    "playerUrl": "/module.html?id=penguindiner",
+    "legacyUrl": "./players/penguindiner.html",
+    "tags": [
+      "restaurant",
+      "time management",
+      "classic"
+    ],
+    "moduleUrl": "/module.html?id=penguindiner",
+    "lessonUrl": "/module.html?id=penguindiner"
+  },
+  {
+    "id": "penguindiner2",
+    "title": "Penguin Diner 2",
+    "mathTitle": "Multi-Server Stochastic Queuing Networks (Penguin Diner 2)",
+    "shortMathTitle": "Multi-Server Stochastic Queuing Networks",
+    "courseCode": "MATH-246",
+    "category": "Resource Optimization",
+    "description": "M/M/c queuing networks, customer patience decay distributions, and equipment return-on-investment.",
+    "type": "flash",
+    "file": "/assets/swf/penguin-diner-2.swf",
+    "playerUrl": "/module.html?id=penguindiner2",
+    "legacyUrl": "./players/penguindiner2.html",
+    "tags": [
+      "restaurant",
+      "time management",
+      "classic"
+    ],
+    "moduleUrl": "/module.html?id=penguindiner2",
+    "lessonUrl": "/module.html?id=penguindiner2"
+  },
+  {
+    "id": "strikeforcekittylaststand",
+    "title": "Strike Force Kitty Last Stand",
+    "mathTitle": "Statistical Combat Attributes & Damage Variance (Strike Force Kitty)",
+    "shortMathTitle": "Statistical Combat Attributes & Damage Variance",
+    "courseCode": "STAT-220",
+    "category": "Resource Optimization",
+    "description": "Equipment attribute distribution, probability-based attack rolls, and wave progression defense.",
+    "type": "flash",
+    "file": "/assets/swf/strikeforcekittylaststand.swf",
+    "playerUrl": "/module.html?id=strikeforcekittylaststand",
+    "legacyUrl": "./players/strikeforcekittylaststand.html",
+    "tags": [
+      "strategy",
+      "defense",
+      "kittens"
+    ],
+    "moduleUrl": "/module.html?id=strikeforcekittylaststand",
+    "lessonUrl": "/module.html?id=strikeforcekittylaststand"
+  },
+  {
+    "id": "ragdollachievement",
+    "title": "Ragdoll Achievement",
+    "mathTitle": "Rigid Body Constraints & Impact Force Tensors (Ragdoll Achievement)",
+    "shortMathTitle": "Rigid Body Constraints & Impact Force Tensors",
+    "courseCode": "PHYS-320",
+    "category": "Kinematics & Dynamics",
+    "description": "Multi-jointed skeletal ragdoll physics, spring dampening, and cumulative kinetic impact vectors.",
+    "type": "flash",
+    "file": "/assets/swf/ragdollachievement.swf",
+    "playerUrl": "/module.html?id=ragdollachievement",
+    "legacyUrl": "./players/ragdollachievement.html",
+    "tags": [
+      "physics",
+      "ragdoll",
+      "sandbox"
+    ],
+    "moduleUrl": "/module.html?id=ragdollachievement",
+    "lessonUrl": "/module.html?id=ragdollachievement"
+  },
+  {
+    "id": "ragdollachievement2",
+    "title": "Ragdoll Achievement 2",
+    "mathTitle": "Advanced Kinematic Impact & Non-Linear Stress (Ragdoll Achievement 2)",
+    "shortMathTitle": "Advanced Kinematic Impact & Non-Linear Stress",
+    "courseCode": "PHYS-321",
+    "category": "Kinematics & Dynamics",
+    "description": "Higher-order kinetic energy dissipation, explosive impulse mechanics, and target optimization.",
+    "type": "flash",
+    "file": "/assets/swf/ragdollachievement2.swf",
+    "playerUrl": "/module.html?id=ragdollachievement2",
+    "legacyUrl": "./players/ragdollachievement2.html",
+    "tags": [
+      "physics",
+      "ragdoll",
+      "sandbox"
+    ],
+    "moduleUrl": "/module.html?id=ragdollachievement2",
+    "lessonUrl": "/module.html?id=ragdollachievement2"
+  },
+  {
+    "id": "portal",
+    "title": "Portal for Flash",
+    "mathTitle": "Non-Euclidean Spatial Topology & Momentum Invariance (Portal Flash)",
+    "shortMathTitle": "Non-Euclidean Spatial Topology & Momentum Invariance",
+    "courseCode": "PHYS-401",
+    "category": "Spatial Geometry & Topology",
+    "description": "Topological manifold shortcuts, conservation of exit velocity vectors, and gravity flip physics.",
+    "type": "flash",
+    "file": "/assets/swf/portal.swf",
+    "playerUrl": "/module.html?id=portal",
+    "legacyUrl": "./players/portal.html",
+    "tags": [
+      "puzzle",
+      "portal",
+      "physics",
+      "platformer"
+    ],
+    "moduleUrl": "/module.html?id=portal",
+    "lessonUrl": "/module.html?id=portal"
+  },
+  {
+    "id": "highwaydriftracing",
+    "title": "Highway Drift Racing",
+    "mathTitle": "Centripetal Acceleration & Friction Coefficients (Drift Racing)",
+    "shortMathTitle": "Centripetal Acceleration & Friction Coefficients",
+    "courseCode": "PHYS-225",
+    "category": "Kinematics & Dynamics",
+    "description": "Tire slip angle calculation, lateral centripetal drift mechanics, and tangent road curvature.",
+    "type": "flash",
+    "file": "/assets/swf/HighwayDriftRacing.swf",
+    "playerUrl": "/module.html?id=highwaydriftracing",
+    "legacyUrl": "./players/highwaydriftracing.html",
+    "tags": [
+      "racing",
+      "drifting",
+      "cars"
+    ],
+    "moduleUrl": "/module.html?id=highwaydriftracing",
+    "lessonUrl": "/module.html?id=highwaydriftracing"
+  },
+  {
+    "id": "mineblocks",
+    "title": "Mineblocks",
+    "mathTitle": "Voxel Coordinate Systems & Procedural Generation (Mineblocks)",
+    "shortMathTitle": "Voxel Coordinate Systems & Procedural Generation",
+    "courseCode": "CS-205",
+    "category": "Spatial Geometry & Topology",
+    "description": "2D orthogonal voxel grid mechanics, simplex noise terrain generation, and block crafting algebra.",
+    "type": "flash",
+    "file": "/assets/swf/mineblocks.swf",
+    "playerUrl": "/module.html?id=mineblocks",
+    "legacyUrl": "./players/mineblocks.html",
+    "tags": [
+      "sandbox",
+      "crafting",
+      "minecraft",
+      "adventure"
+    ],
+    "moduleUrl": "/module.html?id=mineblocks",
+    "lessonUrl": "/module.html?id=mineblocks"
+  },
+  {
+    "id": "stupiditytest",
+    "title": "Stupidity Test",
+    "mathTitle": "Logical Fallacy Recognition & Heuristic Traps (Stupidity Test)",
+    "shortMathTitle": "Logical Fallacy Recognition & Heuristic Traps",
+    "courseCode": "PHIL-110",
+    "category": "Computational Logic",
+    "description": "Cognitive bias identification, counterintuitive logic deductions, and literal semantic parsing.",
+    "type": "flash",
+    "file": "/assets/swf/stupid-test.swf",
+    "playerUrl": "/module.html?id=stupiditytest",
+    "legacyUrl": "./players/stupiditytest.html",
+    "tags": [
+      "quiz",
+      "puzzle",
+      "funny"
+    ],
+    "moduleUrl": "/module.html?id=stupiditytest",
+    "lessonUrl": "/module.html?id=stupiditytest"
+  },
+  {
+    "id": "twistedcookingmama",
+    "title": "Twisted Cooking Mama",
+    "mathTitle": "Precision Timing Derivatives & Reaction Thresholds (Cooking Mama)",
+    "shortMathTitle": "Precision Timing Derivatives & Reaction Thresholds",
+    "courseCode": "MATH-122",
+    "category": "Resource Optimization",
+    "description": "Micro-second threshold windows, parabolic motion cutting angles, and speed score scaling.",
+    "type": "flash",
+    "file": "/assets/swf/twisted_cooking_mama.swf",
+    "playerUrl": "/module.html?id=twistedcookingmama",
+    "legacyUrl": "./players/twistedcookingmama.html",
+    "tags": [
+      "cooking",
+      "parody",
+      "arcade"
+    ],
+    "moduleUrl": "/module.html?id=twistedcookingmama",
+    "lessonUrl": "/module.html?id=twistedcookingmama"
+  },
+  {
+    "id": "theclassroom1",
+    "title": "The Classroom",
+    "mathTitle": "Sightline Visibility Cones & Raycasting Evasion (The Classroom)",
+    "shortMathTitle": "Sightline Visibility Cones & Raycasting Evasion",
+    "courseCode": "MATH-215",
+    "category": "Spatial Geometry & Topology",
+    "description": "Dynamic polygonal field of view polygons, peripheral detection angles, and stealth velocity.",
+    "type": "flash",
+    "file": "/assets/swf/the-classroom-11.swf",
+    "playerUrl": "/module.html?id=theclassroom1",
+    "legacyUrl": "./players/theclassroom1.html",
+    "tags": [
+      "stealth",
+      "classroom",
+      "classic"
+    ],
+    "moduleUrl": "/module.html?id=theclassroom1",
+    "lessonUrl": "/module.html?id=theclassroom1"
+  },
+  {
+    "id": "lasangacooking",
+    "title": "Cooking Lasagna",
+    "mathTitle": "Geometric Planar Layering & Volumetric Baking (Cooking Lasagna)",
+    "shortMathTitle": "Geometric Planar Layering & Volumetric Baking",
+    "courseCode": "MATH-106",
+    "category": "Resource Optimization",
+    "description": "Planar coordinate distribution of pasta sheets, sauce viscosity, and cheese coverage.",
+    "type": "flash",
+    "file": "/assets/swf/lasagna_cooking_.swf",
+    "playerUrl": "/module.html?id=lasangacooking",
+    "legacyUrl": "./players/lasangacooking.html",
+    "tags": [
+      "cooking",
+      "casual",
+      "simulation"
+    ],
+    "moduleUrl": "/module.html?id=lasangacooking",
+    "lessonUrl": "/module.html?id=lasangacooking"
+  },
+  {
+    "id": "cookingtastydonuts",
+    "title": "Cooking Tasty Donuts",
+    "mathTitle": "Toroidal Geometry & Uniform Heat Convection (Tasty Donuts)",
+    "shortMathTitle": "Toroidal Geometry & Uniform Heat Convection",
+    "courseCode": "MATH-107",
+    "category": "Resource Optimization",
+    "description": "Toroidal surface area calculation, oil frying temperature curves, and circumferential frosting.",
+    "type": "flash",
+    "file": "/assets/swf/cooking-tasty-donuts.swf",
+    "playerUrl": "/module.html?id=cookingtastydonuts",
+    "legacyUrl": "./players/cookingtastydonuts.html",
+    "tags": [
+      "cooking",
+      "casual",
+      "simulation"
+    ],
+    "moduleUrl": "/module.html?id=cookingtastydonuts",
+    "lessonUrl": "/module.html?id=cookingtastydonuts"
+  },
+  {
+    "id": "bbcmagicbaking",
+    "title": "Ben & Small's Magic Baking Game",
+    "mathTitle": "Arithmetic Measurement & Volume Counting (Magic Baking)",
+    "shortMathTitle": "Arithmetic Measurement & Volume Counting",
+    "courseCode": "MATH-090",
+    "category": "Resource Optimization",
+    "description": "Elementary integer counting, mass measurement verification, and baking sequencing.",
+    "type": "flash",
+    "file": "/assets/swf/magic_baking.swf",
+    "playerUrl": "/module.html?id=bbcmagicbaking",
+    "legacyUrl": "./players/bbcmagicbaking.html",
+    "tags": [
+      "kids",
+      "baking",
+      "educational"
+    ],
+    "moduleUrl": "/module.html?id=bbcmagicbaking",
+    "lessonUrl": "/module.html?id=bbcmagicbaking"
+  },
+  {
+    "id": "doublewires",
+    "title": "Double Wire",
+    "mathTitle": "Hooke's Law & Pendulum Harmonic Oscillations (Double Wire)",
+    "shortMathTitle": "Hooke's Law & Pendulum Harmonic Oscillations",
+    "courseCode": "PHYS-230",
+    "category": "Kinematics & Dynamics",
+    "description": "Elastic tether tension, dual pendulum harmonic motion, and gravitational acceleration swing.",
+    "type": "flash",
+    "file": "/assets/swf/double_wire_3.swf",
+    "playerUrl": "/module.html?id=doublewires",
+    "legacyUrl": "./players/doublewires.html",
+    "tags": [
+      "physics",
+      "skill",
+      "grapple"
+    ],
+    "moduleUrl": "/module.html?id=doublewires",
+    "lessonUrl": "/module.html?id=doublewires"
+  },
+  {
+    "id": "papasbakeria",
+    "title": "Papa's Bakeria",
+    "mathTitle": "Radial Pie Symmetry & Fill Ratio Algebra (Papa's Bakeria)",
+    "shortMathTitle": "Radial Pie Symmetry & Fill Ratio Algebra",
+    "courseCode": "MATH-244",
+    "category": "Resource Optimization",
+    "description": "Sector crust circumference, radial filling percentages, and crust lattice geometry.",
+    "type": "flash",
+    "file": "/assets/swf/papasbakeria_101.swf",
+    "playerUrl": "/module.html?id=papasbakeria",
+    "legacyUrl": "./players/papasbakeria.html",
+    "tags": [
+      "papa",
+      "bakeria",
+      "management",
+      "cooking"
+    ],
+    "moduleUrl": "/module.html?id=papasbakeria",
+    "lessonUrl": "/module.html?id=papasbakeria"
+  },
+  {
+    "id": "theimpossiblequiz2",
+    "title": "The Impossible Quiz 2",
+    "mathTitle": "Adversarial Logic Proofs & Paradox Resolution (Impossible Quiz 2)",
+    "shortMathTitle": "Adversarial Logic Proofs & Paradox Resolution",
+    "courseCode": "PHIL-201",
+    "category": "Computational Logic",
+    "description": "Deceptive question trees, lateral thinking heuristics, and countdown timer pressure analysis.",
+    "type": "flash",
+    "file": "/assets/swf/theimpossiblequiz2.swf",
+    "playerUrl": "/module.html?id=theimpossiblequiz2",
+    "legacyUrl": "./players/theimpossiblequiz2.html",
+    "tags": [
+      "quiz",
+      "trivia",
+      "hard",
+      "classic"
+    ],
+    "moduleUrl": "/module.html?id=theimpossiblequiz2",
+    "lessonUrl": "/module.html?id=theimpossiblequiz2"
+  },
+  {
+    "id": "shredoku",
+    "title": "Shredoku",
+    "mathTitle": "Exact Cover & Sudoku Constraint Satisfaction (Shredoku)",
+    "shortMathTitle": "Exact Cover & Sudoku Constraint Satisfaction",
+    "courseCode": "MATH-302",
+    "category": "Computational Logic",
+    "description": "9x9 subgrid constraint propagation, backtracking algorithms, and non-repeating digit permutations.",
+    "type": "flash",
+    "file": "/assets/swf/shredoku.swf",
+    "playerUrl": "/module.html?id=shredoku",
+    "legacyUrl": "./players/shredoku.html",
+    "tags": [
+      "sudoku",
+      "shrek",
+      "puzzle",
+      "numbers"
+    ],
+    "moduleUrl": "/module.html?id=shredoku",
+    "lessonUrl": "/module.html?id=shredoku"
+  },
+  {
+    "id": "happywheels",
+    "title": "Happy Wheels",
+    "mathTitle": "Kinematic Ragdoll Dynamics & Fracture Mechanics (Happy Wheels)",
+    "shortMathTitle": "Kinematic Ragdoll Dynamics & Fracture Mechanics",
+    "courseCode": "PHYS-330",
+    "category": "Kinematics & Dynamics",
+    "description": "Multilink inverted pendulum balance, structural impact fracture forces, and terrain collision meshes.",
+    "type": "flash",
+    "file": "/assets/swf/HappyWheels.swf",
+    "playerUrl": "/module.html?id=happywheels",
+    "legacyUrl": "./players/happywheels.html",
+    "tags": [
+      "physics",
+      "ragdoll",
+      "bloody",
+      "classic"
+    ],
+    "moduleUrl": "/module.html?id=happywheels",
+    "lessonUrl": "/module.html?id=happywheels"
+  },
+  {
+    "id": "doom",
+    "title": "Doom",
+    "mathTitle": "Binary Space Partitioning & 2.5D Raycasting (Doom Flash)",
+    "shortMathTitle": "Binary Space Partitioning & 2.5D Raycasting",
+    "courseCode": "CS-350",
+    "category": "Spatial Geometry & Topology",
+    "description": "BSP tree level rendering, angle projection trigonometry, and sector height map interpolation.",
+    "type": "flash",
+    "file": "/assets/swf/470460_DoomGame.swf",
+    "playerUrl": "/module.html?id=doom",
+    "legacyUrl": "./players/doom.html",
+    "tags": [
+      "fps",
+      "classic",
+      "retro",
+      "action"
+    ],
+    "moduleUrl": "/module.html?id=doom",
+    "lessonUrl": "/module.html?id=doom"
+  },
+  {
+    "id": "radiozed",
+    "title": "Radio Zed",
+    "mathTitle": "Signal Range Propagation & Wave Frequency Defense (Radio Zed)",
+    "shortMathTitle": "Signal Range Propagation & Wave Frequency Defense",
+    "courseCode": "PHYS-250",
+    "category": "Kinematics & Dynamics",
+    "description": "Electromagnetic broadcast radius modeling, perimeter barricade damage decay, and ballistic defense.",
+    "type": "flash",
+    "file": "/assets/swf/radio_zed.swf",
+    "playerUrl": "/module.html?id=radiozed",
+    "legacyUrl": "./players/radiozed.html",
+    "tags": [
+      "shooter",
+      "defense",
+      "zombies"
+    ],
+    "moduleUrl": "/module.html?id=radiozed",
+    "lessonUrl": "/module.html?id=radiozed"
+  },
+  {
+    "id": "pyongyang",
+    "title": "Pyongyang Racer",
+    "mathTitle": "Constant Velocity Curves & Fuel Depletion Metrics (Pyongyang Racer)",
+    "shortMathTitle": "Constant Velocity Curves & Fuel Depletion Metrics",
+    "courseCode": "PHYS-110",
+    "category": "Kinematics & Dynamics",
+    "description": "Linear fuel burn rates, tangent obstacle avoidance vectors, and city street navigation.",
+    "type": "flash",
+    "file": "/assets/swf/pyongyangracer.swf",
+    "playerUrl": "/module.html?id=pyongyang",
+    "legacyUrl": "./players/pyongyang.html",
+    "tags": [
+      "driving",
+      "arcade",
+      "retro"
+    ],
+    "moduleUrl": "/module.html?id=pyongyang",
+    "lessonUrl": "/module.html?id=pyongyang"
+  },
+  {
+    "id": "rollaball",
+    "title": "Roll-a-Ball",
+    "mathTitle": "Rotational Inertia & 3D WebGL Spherical Physics (Roll-a-Ball)",
+    "shortMathTitle": "Rotational Inertia & 3D WebGL Spherical Physics",
+    "courseCode": "CS-360",
+    "category": "3D WebGL Labs",
+    "description": "Torque-driven sphere angular velocity, 3D coordinate pickup detection, and WebGL physics.",
+    "type": "unity",
+    "file": "/assets/unity/rollaball/index.html",
+    "playerUrl": "/module.html?id=rollaball",
+    "legacyUrl": "./assets/unity/rollaball/index.html",
+    "tags": [
+      "unity",
+      "3d",
+      "physics",
+      "webgl"
+    ],
+    "moduleUrl": "/module.html?id=rollaball",
+    "lessonUrl": "/module.html?id=rollaball"
+  },
+  {
+    "id": "supermarioflash",
+    "title": "Super Mario Flash",
+    "mathTitle": "Parabolic Jump Trajectories & Tile Collision (Super Mario Flash)",
+    "shortMathTitle": "Parabolic Jump Trajectories & Tile Collision",
+    "courseCode": "PHYS-130",
+    "category": "Kinematics & Dynamics",
+    "description": "Gravitational constant g calculation, quadratic parabolic jump curves, and AABB tile collisions.",
+    "type": "flash",
+    "file": "/assets/swf/super-mario-flash.swf",
+    "playerUrl": "/module.html?id=supermarioflash",
+    "tags": [
+      "mario",
+      "platformer",
+      "classic",
+      "retro"
+    ],
+    "moduleUrl": "/module.html?id=supermarioflash",
+    "lessonUrl": "/module.html?id=supermarioflash"
+  },
+  {
+    "id": "minecrafttd",
+    "title": "Minecraft Tower Defence",
+    "mathTitle": "Grid Pathfinding & Discrete Dynamic Maze Defense (Minecraft TD)",
+    "shortMathTitle": "Grid Pathfinding & Discrete Dynamic Maze Defense",
+    "courseCode": "CS-240",
+    "category": "Spatial Geometry & Topology",
+    "description": "A* shortest path recalculation, digging grid path manipulation, and tower cost-efficiency.",
+    "type": "flash",
+    "file": "/assets/swf/Minecraft Tower Defence.swf",
+    "playerUrl": "/module.html?id=minecrafttd",
+    "tags": [
+      "minecraft",
+      "tower defense",
+      "strategy"
+    ],
+    "moduleUrl": "/module.html?id=minecrafttd",
+    "lessonUrl": "/module.html?id=minecrafttd"
+  },
+  {
+    "id": "minecrafttd2",
+    "title": "Minecraft Tower Defence 2",
+    "mathTitle": "Topological Grid Path Optimization II (Minecraft TD 2)",
+    "shortMathTitle": "Topological Grid Path Optimization II",
+    "courseCode": "CS-241",
+    "category": "Spatial Geometry & Topology",
+    "description": "Multilayer subterranean path graph analysis and elemental trap DPS integration.",
+    "type": "flash",
+    "file": "/assets/swf/minecraft-tower-defence-2.swf",
+    "playerUrl": "/module.html?id=minecrafttd2",
+    "tags": [
+      "minecraft",
+      "tower defense",
+      "strategy"
+    ],
+    "moduleUrl": "/module.html?id=minecrafttd2",
+    "lessonUrl": "/module.html?id=minecrafttd2"
+  },
+  {
+    "id": "cactusmccoy",
+    "title": "Cactus McCoy",
+    "mathTitle": "Linear Momentum & Melee Vector Resolution (Cactus McCoy)",
+    "shortMathTitle": "Linear Momentum & Melee Vector Resolution",
+    "courseCode": "PHYS-140",
+    "category": "Kinematics & Dynamics",
+    "description": "Platform elevation kinematics, momentum transfer on hit, and juggling trajectory arcs.",
+    "type": "flash",
+    "file": "/assets/swf/cactusmccoy.swf",
+    "playerUrl": "/module.html?id=cactusmccoy",
+    "tags": [
+      "action",
+      "platformer",
+      "flipline"
+    ],
+    "moduleUrl": "/module.html?id=cactusmccoy",
+    "lessonUrl": "/module.html?id=cactusmccoy"
+  },
+  {
+    "id": "cactusmccoy2",
+    "title": "Cactus McCoy 2",
+    "mathTitle": "Multivariant Platform Dynamics (Cactus McCoy 2)",
+    "shortMathTitle": "Multivariant Platform Dynamics",
+    "courseCode": "PHYS-141",
+    "category": "Kinematics & Dynamics",
+    "description": "Weapon balance coefficients, expanded aerial combo vectors, and level elevation traversal.",
+    "type": "flash",
+    "file": "/assets/swf/cactusmccoy2.swf",
+    "playerUrl": "/module.html?id=cactusmccoy2",
+    "tags": [
+      "action",
+      "platformer",
+      "flipline"
+    ],
+    "moduleUrl": "/module.html?id=cactusmccoy2",
+    "lessonUrl": "/module.html?id=cactusmccoy2"
+  },
+  {
+    "id": "dumbwaystodie",
+    "title": "Dumb Ways to Die",
+    "mathTitle": "Reaction Time Distributions & Stochastic Hazards (Dumb Ways to Die)",
+    "shortMathTitle": "Reaction Time Distributions & Stochastic Hazards",
+    "courseCode": "STAT-180",
+    "category": "Computational Logic",
+    "description": "Millisecond reflex decay curves, randomized minigame state machines, and peril avoidance.",
+    "type": "flash",
+    "file": "/assets/swf/dumbwaystodie.swf",
+    "playerUrl": "/module.html?id=dumbwaystodie",
+    "tags": [
+      "arcade",
+      "minigames",
+      "casual"
+    ],
+    "moduleUrl": "/module.html?id=dumbwaystodie",
+    "lessonUrl": "/module.html?id=dumbwaystodie"
+  },
+  {
+    "id": "hauntthehouse",
+    "title": "Haunt the House",
+    "mathTitle": "Harmonic Resonance & Panic Level Propagation (Haunt the House)",
+    "shortMathTitle": "Harmonic Resonance & Panic Level Propagation",
+    "courseCode": "PHYS-270",
+    "category": "Spatial Geometry & Topology",
+    "description": "Object possession vibration frequency, atmospheric panic spread diffusion, and guest AI fleeing paths.",
+    "type": "flash",
+    "file": "/assets/swf/hauntthehouse.swf",
+    "playerUrl": "/module.html?id=hauntthehouse",
+    "tags": [
+      "puzzle",
+      "ghost",
+      "spooky",
+      "atmospheric"
+    ],
+    "moduleUrl": "/module.html?id=hauntthehouse",
+    "lessonUrl": "/module.html?id=hauntthehouse"
+  },
+  {
+    "id": "papascheeseria",
+    "title": "Papa's Cheeseria",
+    "mathTitle": "Viscous Cheese Melting Thermodynamics (Papa's Cheeseria)",
+    "shortMathTitle": "Viscous Cheese Melting Thermodynamics",
+    "courseCode": "MATH-243",
+    "category": "Resource Optimization",
+    "description": "Panini press temperature gradient, cheese viscosity over time, and fry order scheduling.",
+    "type": "flash",
+    "file": "/assets/swf/papascheeseria_102.swf",
+    "playerUrl": "/module.html?id=papascheeseria",
+    "tags": [
+      "papa",
+      "cheeseria",
+      "cooking",
+      "simulation"
+    ],
+    "moduleUrl": "/module.html?id=papascheeseria",
+    "lessonUrl": "/module.html?id=papascheeseria"
+  },
+  {
+    "id": "papascupcakeria",
+    "title": "Papa's Cupcakeria",
+    "mathTitle": "Centroid Frosting Spirals & Batter Mass (Papa's Cupcakeria)",
+    "shortMathTitle": "Centroid Frosting Spirals & Batter Mass",
+    "courseCode": "MATH-247",
+    "category": "Resource Optimization",
+    "description": "Logarithmic Archimedean spiral frosting application and pan weight distribution.",
+    "type": "flash",
+    "file": "/assets/swf/papascupcakeria.swf",
+    "playerUrl": "/module.html?id=papascupcakeria",
+    "tags": [
+      "papa",
+      "cupcakeria",
+      "cooking",
+      "simulation"
+    ],
+    "moduleUrl": "/module.html?id=papascupcakeria",
+    "lessonUrl": "/module.html?id=papascupcakeria"
+  },
+  {
+    "id": "papasdonuteria",
+    "title": "Papa's Donuteria",
+    "mathTitle": "Toroid Dough Expansion & Glaze Coverage (Papa's Donuteria)",
+    "shortMathTitle": "Toroid Dough Expansion & Glaze Coverage",
+    "courseCode": "MATH-248",
+    "category": "Resource Optimization",
+    "description": "Donut cutter center-offset calculation, frying flip timing, and uniform cream injection.",
+    "type": "flash",
+    "file": "/assets/swf/papasdonuteria.swf",
+    "playerUrl": "/module.html?id=papasdonuteria",
+    "tags": [
+      "papa",
+      "donuteria",
+      "cooking",
+      "simulation"
+    ],
+    "moduleUrl": "/module.html?id=papasdonuteria",
+    "lessonUrl": "/module.html?id=papasdonuteria"
+  },
+  {
+    "id": "papashotdoggeria",
+    "title": "Papa's Hot Doggeria",
+    "mathTitle": "Cylindrical Heat Conduction & Condiment Flow (Papa's Hot Doggeria)",
+    "shortMathTitle": "Cylindrical Heat Conduction & Condiment Flow",
+    "courseCode": "MATH-249",
+    "category": "Resource Optimization",
+    "description": "Linear grill rotation timing, ballpark stadium order surges, and drink/popcorn dispensing.",
+    "type": "flash",
+    "file": "/assets/swf/papashotdoggeria.swf",
+    "playerUrl": "/module.html?id=papashotdoggeria",
+    "tags": [
+      "papa",
+      "hotdoggeria",
+      "cooking",
+      "simulation"
+    ],
+    "moduleUrl": "/module.html?id=papashotdoggeria",
+    "lessonUrl": "/module.html?id=papashotdoggeria"
+  },
+  {
+    "id": "papaspancakeria",
+    "title": "Papa's Pancakeria",
+    "mathTitle": "Laminar Batter Spreading & Stack Symmetry (Papa's Pancakeria)",
+    "shortMathTitle": "Laminar Batter Spreading & Stack Symmetry",
+    "courseCode": "MATH-251",
+    "category": "Resource Optimization",
+    "description": "Radial griddle heat uniformity, flip timer precision, and multi-tier breakfast stacking.",
+    "type": "flash",
+    "file": "/assets/swf/papaspancakeria.swf",
+    "playerUrl": "/module.html?id=papaspancakeria",
+    "tags": [
+      "papa",
+      "pancakeria",
+      "cooking",
+      "simulation"
+    ],
+    "moduleUrl": "/module.html?id=papaspancakeria",
+    "lessonUrl": "/module.html?id=papaspancakeria"
+  },
+  {
+    "id": "papaspastaria",
+    "title": "Papa's Pastaria",
+    "mathTitle": "Hydrothermal Starch Gelatinization (Papa's Pastaria)",
+    "shortMathTitle": "Hydrothermal Starch Gelatinization",
+    "courseCode": "MATH-252",
+    "category": "Resource Optimization",
+    "description": "Boiling timer al-dente curves, strainer fluid drainage rate, and sauce volume distribution.",
+    "type": "flash",
+    "file": "/assets/swf/papaspastaria.swf",
+    "playerUrl": "/module.html?id=papaspastaria",
+    "tags": [
+      "papa",
+      "pastaria",
+      "cooking",
+      "simulation"
+    ],
+    "moduleUrl": "/module.html?id=papaspastaria",
+    "lessonUrl": "/module.html?id=papaspastaria"
+  },
+  {
+    "id": "papasscooperia",
+    "title": "Papa's Scooperia",
+    "mathTitle": "Hemispherical Ice Cream Packing & Cookie Baking (Papa's Scooperia)",
+    "shortMathTitle": "Hemispherical Ice Cream Packing & Cookie Baking",
+    "courseCode": "MATH-253",
+    "category": "Resource Optimization",
+    "description": "Cookie dough thermal spread, scoop spherical coordinates, and syrup drizzle trigonometry.",
+    "type": "flash",
+    "file": "/assets/swf/papasscooperia_v102.swf",
+    "playerUrl": "/module.html?id=papasscooperia",
+    "tags": [
+      "papa",
+      "scooperia",
+      "cooking",
+      "simulation"
+    ],
+    "moduleUrl": "/module.html?id=papasscooperia",
+    "lessonUrl": "/module.html?id=papasscooperia"
+  },
+  {
+    "id": "papassushiria",
+    "title": "Papa's Sushiria",
+    "mathTitle": "Rice Adhesion Kinetics & Cylindrical Cutting (Papa's Sushiria)",
+    "shortMathTitle": "Rice Adhesion Kinetics & Cylindrical Cutting",
+    "courseCode": "MATH-254",
+    "category": "Resource Optimization",
+    "description": "Nori sheet area coverage, rolling mat pressure, and transverse equidistant sushi cuts.",
+    "type": "flash",
+    "file": "/assets/swf/papassushiria.swf",
+    "playerUrl": "/module.html?id=papassushiria",
+    "tags": [
+      "papa",
+      "sushiria",
+      "cooking",
+      "simulation"
+    ],
+    "moduleUrl": "/module.html?id=papassushiria",
+    "lessonUrl": "/module.html?id=papassushiria"
+  },
+  {
+    "id": "papastacomia",
+    "title": "Papa's Taco Mia",
+    "mathTitle": "Parabolic Shell Capacity & Weight Ratios (Papa's Taco Mia)",
+    "shortMathTitle": "Parabolic Shell Capacity & Weight Ratios",
+    "courseCode": "MATH-255",
+    "category": "Resource Optimization",
+    "description": "Ground beef simmering metrics, taco shell center of gravity, and layer density calculations.",
+    "type": "flash",
+    "file": "/assets/swf/papastacomia.swf",
+    "playerUrl": "/module.html?id=papastacomia",
+    "tags": [
+      "papa",
+      "tacomia",
+      "cooking",
+      "simulation"
+    ],
+    "moduleUrl": "/module.html?id=papastacomia",
+    "lessonUrl": "/module.html?id=papastacomia"
+  },
+  {
+    "id": "papaswingeria",
+    "title": "Papa's Wingeria",
+    "mathTitle": "Centrifugal Sauce Coating & Plating Symmetry (Papa's Wingeria)",
+    "shortMathTitle": "Centrifugal Sauce Coating & Plating Symmetry",
+    "courseCode": "MATH-256",
+    "category": "Resource Optimization",
+    "description": "Deep-fry oil immersion curves, rotational sauce tossing vectors, and concentric wing plating.",
+    "type": "flash",
+    "file": "/assets/swf/papaswingeria.swf",
+    "playerUrl": "/module.html?id=papaswingeria",
+    "tags": [
+      "papa",
+      "wingeria",
+      "cooking",
+      "simulation"
+    ],
+    "moduleUrl": "/module.html?id=papaswingeria",
+    "lessonUrl": "/module.html?id=papaswingeria"
+  },
+  {
+    "id": "papalouie1",
+    "title": "Papa Louie: When Pizzas Attack",
+    "mathTitle": "Platforming Parabola & Pepper-Bomb Trajectories (Papa Louie 1)",
+    "shortMathTitle": "Platforming Parabola & Pepper-Bomb Trajectories",
+    "courseCode": "PHYS-150",
+    "category": "Kinematics & Dynamics",
+    "description": "Glide duration decay, quadratic pepper bomb arcs, and enemy bounce impulse forces.",
+    "type": "flash",
+    "file": "/assets/swf/papalouie_v2.swf",
+    "playerUrl": "/module.html?id=papalouie1",
+    "tags": [
+      "papa",
+      "platformer",
+      "adventure"
+    ],
+    "moduleUrl": "/module.html?id=papalouie1",
+    "lessonUrl": "/module.html?id=papalouie1"
+  },
+  {
+    "id": "papalouie2",
+    "title": "Papa Louie 2: When Burgers Attack",
+    "mathTitle": "Conservation of Momentum in Burger Formations (Papa Louie 2)",
+    "shortMathTitle": "Conservation of Momentum in Burger Formations",
+    "courseCode": "PHYS-151",
+    "category": "Kinematics & Dynamics",
+    "description": "Customer weapon velocity coefficients, glide aerodynamics, and multilevel traversal geometry.",
+    "type": "flash",
+    "file": "/assets/swf/PapaLouie2.swf",
+    "playerUrl": "/module.html?id=papalouie2",
+    "tags": [
+      "papa",
+      "platformer",
+      "adventure"
+    ],
+    "moduleUrl": "/module.html?id=papalouie2",
+    "lessonUrl": "/module.html?id=papalouie2"
+  },
+  {
+    "id": "papalouie3",
+    "title": "Papa Louie 3: When Sundaes Attack",
+    "mathTitle": "Sub-Aquatic Buoyancy & Ice Cream Fluid Drag (Papa Louie 3)",
+    "shortMathTitle": "Sub-Aquatic Buoyancy & Ice Cream Fluid Drag",
+    "courseCode": "PHYS-152",
+    "category": "Kinematics & Dynamics",
+    "description": "Archimedes buoyancy calculations, underwater fluid drag, and ice cream platform friction.",
+    "type": "flash",
+    "file": "/assets/swf/PapaLouie3.swf",
+    "playerUrl": "/module.html?id=papalouie3",
+    "tags": [
+      "papa",
+      "platformer",
+      "adventure"
+    ],
+    "moduleUrl": "/module.html?id=papalouie3",
+    "lessonUrl": "/module.html?id=papalouie3"
+  },
+  {
+    "id": "whackyourex",
+    "title": "Whack Your Ex",
+    "mathTitle": "Environmental Object Vectors & Collision Triggers (Whack Your Ex)",
+    "shortMathTitle": "Environmental Object Vectors & Collision Triggers",
+    "courseCode": "STAT-152",
+    "category": "Computational Logic",
+    "description": "State selection permutation trees and animated sequential event chains.",
+    "type": "flash",
+    "file": "/assets/swf/whack_your_ex.swf",
+    "playerUrl": "/module.html?id=whackyourex",
+    "tags": [
+      "interactive",
+      "humor",
+      "point and click"
+    ],
+    "moduleUrl": "/module.html?id=whackyourex",
+    "lessonUrl": "/module.html?id=whackyourex"
+  },
+  {
+    "id": "unityfpsdemo",
+    "title": "Unity FPS Demo",
+    "mathTitle": "3D Euler Angle Transformations & First-Person Kinematics (FPS Demo)",
+    "shortMathTitle": "3D Euler Angle Transformations & First-Person Kinematics",
+    "courseCode": "CS-370",
+    "category": "3D WebGL Labs",
+    "description": "Quaternion camera rotations, 3D vector collision raycasts, and WebGL shader pipeline.",
+    "type": "webgl",
+    "file": "/players/webgl/unity-fpsdemo.html",
+    "playerUrl": "/module.html?id=unityfpsdemo",
+    "legacyUrl": "./players/webgl/unity-fpsdemo.html",
+    "tags": [
+      "unity",
+      "fps",
+      "3d",
+      "webgl"
+    ],
+    "moduleUrl": "/module.html?id=unityfpsdemo",
+    "lessonUrl": "/module.html?id=unityfpsdemo"
+  }
+]

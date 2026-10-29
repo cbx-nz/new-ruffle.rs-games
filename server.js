@@ -21,14 +21,22 @@ app.use((req, res, next) => {
   next();
 });
 
-// 2. Vercel Serverless Functions mounted locally
-app.all('/api/games', require('./api/games'));
-app.all('/api/game', require('./api/game'));
-app.all('/api/random', require('./api/random'));
+// 2. Interceptor-Safe Academic APIs (Vercel Serverless Functions mounted locally)
+app.all('/api/curriculum', require('./api/curriculum'));
+app.all('/api/modules', require('./api/curriculum'));
+app.all('/api/module', require('./api/module'));
+
+// Legacy API aliases
+app.all('/api/games', require('./api/curriculum'));
+app.all('/api/game', require('./api/module'));
+app.all('/api/random', (req, res, next) => {
+  req.query.random = 'true';
+  return require('./api/curriculum')(req, res, next);
+});
 
 // 3. Dynamic rewrites matching vercel.json
-app.get('/play/:id', (req, res) => {
-  res.sendFile(path.join(PUBLIC_DIR, 'player.html'));
+app.get(['/module/:id', '/lesson/:id', '/lab/:id', '/play/:id', '/game/:id'], (req, res) => {
+  res.sendFile(path.join(PUBLIC_DIR, 'module.html'));
 });
 
 app.get('/calc', (req, res) => {
@@ -47,8 +55,9 @@ app.use((req, res) => {
 if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}/`);
-    console.log(`- API available at http://localhost:${PORT}/api/games`);
-    console.log(`- Universal player at http://localhost:${PORT}/player.html?id=bloonstd`);
+    console.log(`- Academic API at http://localhost:${PORT}/api/curriculum`);
+    console.log(`- Static JSON fallback at http://localhost:${PORT}/assets/curriculum.json`);
+    console.log(`- Universal module player at http://localhost:${PORT}/module.html?id=bloonstd`);
   });
 }
 

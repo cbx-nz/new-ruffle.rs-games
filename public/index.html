@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" id="siteFavicon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M18 4H6v2l6.5 6L6 18v2h12v-3h-7l5-4.5L11 8h7V4z'/%3E%3C/svg%3E" />
-  <link rel="apple-touch-icon" href="./assets/images/icons/swf.png" />
   <title id="siteTitle">Online Maths Club — Advanced Mathematics & STEM Modeling</title>
   <link rel="stylesheet" type="text/css" href="./assets/css/selector.css" />
 </head>
@@ -40,7 +39,7 @@
       </button>
 
       <!-- Stealth Cloak Toggle Switch -->
-      <div class="cloak-toggle" title="Toggle between Pure Academic Course Names and Standard Game Labels">
+      <div class="cloak-toggle" title="Toggle between Pure Academic Course Names and Standard Labels">
         <span>Academic Cloak</span>
         <label class="switch">
           <input type="checkbox" id="cloakToggleInput">
@@ -162,7 +161,7 @@
           <label style="font-weight:600;display:block;margin-bottom:0.3rem;">Default Disguise Mode</label>
           <select id="settingCloakMode" style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;">
             <option value="academic">Academic Course Titles (Maximum Stealth)</option>
-            <option value="hybrid">Hybrid Titles (Math Module + Game Name)</option>
+            <option value="hybrid">Hybrid Titles (Math Module + Code)</option>
           </select>
         </div>
         <div>
@@ -181,9 +180,9 @@
 <script>
   /* ---------- CONFIG & STATE ---------- */
   const maxRecent = 25;
-  let allGames = [];
+  let allModules = [];
   let currentCategory = 'all';
-  let isAcademicCloak = localStorage.getItem("mathStealthCloak") !== "false"; // default true
+  let isAcademicCloak = localStorage.getItem("mathStealthCloak") !== "false";
 
   /* ---------- MATH BACKGROUND ANIMATION ---------- */
   function createMathSymbols() {
@@ -249,63 +248,89 @@
     }
   }
 
-  /* ---------- FETCH GAMES FROM API ---------- */
-  async function loadGamesCatalog() {
+  /* ---------- BULLETPROOF RESILIENT CURRICULUM LOADER ---------- */
+  async function loadCurriculum() {
+    // 1. Try academic API route (/api/curriculum)
     try {
-      const res = await fetch('/api/games');
-      const data = await res.json();
-      if (data.success && Array.isArray(data.games)) {
-        allGames = data.games;
-        renderDatalist();
-        loadRecentGames();
-        return;
+      const res = await fetch('/api/curriculum');
+      if (res.ok) {
+        const data = await res.json();
+        const list = data.modules || data.items || data.games;
+        if (Array.isArray(list) && list.length > 0) {
+          allModules = list;
+          renderDatalist();
+          loadRecentModules();
+          return;
+        }
       }
     } catch (e) {
-      console.warn("Could not load from /api/games, trying legacy datalist fallback:", e);
+      console.warn("API route unavailable, trying static curriculum file:", e);
     }
 
-    // Fallback: load /assets/games.html directly
+    // 2. Direct Static CDN Fallback (/assets/curriculum.json - Zero Serverless, pure static)
     try {
-      const res = await fetch('/assets/games.html');
-      const html = await res.text();
-      document.getElementById('pages').innerHTML = html;
-      loadRecentGames();
+      const res = await fetch('/assets/curriculum.json');
+      if (res.ok) {
+        const list = await res.json();
+        if (Array.isArray(list) && list.length > 0) {
+          allModules = list;
+          renderDatalist();
+          loadRecentModules();
+          return;
+        }
+      }
     } catch (e) {
-      console.error("All games sources failed:", e);
+      console.warn("Static assets fallback failed, trying root:", e);
+    }
+
+    // 3. Root static fallback (/curriculum.json)
+    try {
+      const res = await fetch('/curriculum.json');
+      if (res.ok) {
+        const list = await res.json();
+        if (Array.isArray(list) && list.length > 0) {
+          allModules = list;
+          renderDatalist();
+          loadRecentModules();
+          return;
+        }
+      }
+    } catch (e) {
+      console.error("All curriculum sources failed:", e);
     }
   }
 
-  /* ---------- RENDER DATALIST FROM GAMES API ---------- */
+  /* ---------- RENDER DATALIST ---------- */
   function renderDatalist() {
     const datalist = document.getElementById('pages');
     datalist.innerHTML = "";
 
-    let filtered = allGames;
+    let filtered = allModules;
     if (currentCategory !== 'all') {
       const catLower = currentCategory.toLowerCase();
-      filtered = filtered.filter(g => g.category.toLowerCase().includes(catLower));
+      filtered = filtered.filter(m => m.category.toLowerCase().includes(catLower));
     }
 
-    // Sort alphabetically
     filtered.sort((a, b) => {
       const titleA = isAcademicCloak ? `${a.courseCode}: ${a.shortMathTitle}` : a.mathTitle;
       const titleB = isAcademicCloak ? `${b.courseCode}: ${b.shortMathTitle}` : b.mathTitle;
       return titleA.localeCompare(titleB);
     });
 
-    filtered.forEach(g => {
+    filtered.forEach(m => {
       const opt = document.createElement('option');
-      opt.value = isAcademicCloak ? `${g.courseCode}: ${g.shortMathTitle}` : g.mathTitle;
-      opt.dataset.url = g.playerUrl || `/player.html?id=${g.id}`;
-      opt.dataset.id = g.id;
-      opt.dataset.rawTitle = g.title;
+      opt.value = isAcademicCloak ? `${m.courseCode}: ${m.shortMathTitle}` : m.mathTitle;
+      opt.dataset.url = m.moduleUrl || `/module.html?id=${m.id}`;
+      opt.dataset.id = m.id;
+      opt.dataset.code = m.courseCode;
+      opt.dataset.rawTitle = m.title;
       datalist.appendChild(opt);
     });
   }
 
-  /* ---------- RECENT GAMES ---------- */
-  function loadRecentGames() {
-    const recent = JSON.parse(localStorage.getItem("recentGames") || "[]");
+  /* ---------- RECENT MODULES ---------- */
+  function loadRecentModules() {
+    const recent = JSON.parse(localStorage.getItem("recentMathModules") || localStorage.getItem("recentGames") || "[]");
     const recentList = document.getElementById("recentList");
     if (!recentList) return;
 
@@ -315,30 +340,27 @@
       li.textContent = name;
       li.style.cursor = "pointer";
       li.addEventListener("click", () => {
-        // Find matching game by name, title, or math title
-        const match = allGames.find(g => 
-          g.title.toLowerCase() === name.toLowerCase() ||
-          g.mathTitle.toLowerCase() === name.toLowerCase() ||
-          g.shortMathTitle.toLowerCase() === name.toLowerCase()
+        const match = allModules.find(m => 
+          m.title.toLowerCase() === name.toLowerCase() ||
+          m.mathTitle.toLowerCase() === name.toLowerCase() ||
+          m.shortMathTitle.toLowerCase() === name.toLowerCase() ||
+          m.courseCode.toLowerCase() === name.toLowerCase()
         );
 
         if (match) {
-          window.location.href = match.playerUrl || `/player.html?id=${match.id}`;
+          window.location.href = match.moduleUrl || `/module.html?id=${match.id}`;
         } else {
-          // Check existing datalist options
           const opt = Array.from(document.querySelectorAll("#pages option"))
             .find(o => o.value.toLowerCase().includes(name.toLowerCase()));
           if (opt) window.location.href = opt.dataset.url;
-          else alert("Module not found.");
         }
       });
       recentList.appendChild(li);
     });
   }
 
-  /* ---------- BUTTONS & INTERACTION ---------- */
+  /* ---------- INTERACTIONS & BUTTONS ---------- */
   function initializeInteractions() {
-    // Cloak toggle switch
     const cloakInput = document.getElementById('cloakToggleInput');
     cloakInput.checked = isAcademicCloak;
     cloakInput.addEventListener('change', () => {
@@ -347,7 +369,6 @@
       renderDatalist();
     });
 
-    // Category filter pills
     document.querySelectorAll('.cat-pill').forEach(pill => {
       pill.addEventListener('click', () => {
         document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
@@ -357,23 +378,23 @@
       });
     });
 
-    // Random Problem button
     document.getElementById('btnNavRandom').addEventListener('click', async () => {
       try {
-        const res = await fetch('/api/random');
+        const res = await fetch('/api/curriculum?random=true');
         const data = await res.json();
-        if (data.success && data.game) {
-          window.location.href = data.game.playerUrl || `/player.html?id=${data.game.id}`;
+        const rand = data.module || data.item;
+        if (rand) {
+          window.location.href = rand.moduleUrl || `/module.html?id=${rand.id}`;
+          return;
         }
-      } catch {
-        if (allGames.length) {
-          const rand = allGames[Math.floor(Math.random() * allGames.length)];
-          window.location.href = rand.playerUrl || `/player.html?id=${rand.id}`;
-        }
+      } catch (_) {}
+
+      if (allModules.length) {
+        const rand = allModules[Math.floor(Math.random() * allModules.length)];
+        window.location.href = rand.moduleUrl || `/module.html?id=${rand.id}`;
       }
     });
 
-    // Modals
     const calcModal = document.getElementById('calcModal');
     const formulasModal = document.getElementById('formulasModal');
     const settingsModal = document.getElementById('settingsModal');
@@ -407,7 +428,6 @@
       settingsModal.classList.remove('open');
     });
 
-    // External buttons
     document.getElementById('githubBtn').addEventListener('click', () => {
       window.open('https://github.com/cbx-nz/new-ruffle.rs-games', '_blank');
     });
@@ -417,24 +437,21 @@
     });
 
     document.getElementById('developerBtn').addEventListener('click', () => {
-      window.open('https://www-cbx-kiwi.vercel.app', '_blank');
+      window.open('https://cbgames-xyz.vercel.app', '_blank');
     });
 
     document.getElementById('infoBtn').addEventListener('click', () => {
       window.open('/README.md', '_blank');
     });
 
-    // Close modals when clicking outside
     [calcModal, formulasModal, settingsModal].forEach(m => {
       m.addEventListener('click', (e) => {
         if (e.target === m) m.classList.remove('open');
       });
     });
 
-    // Setup modal calculator
     setupModalCalculator();
 
-    // Form submission
     const form = document.getElementById('pageForm');
     const input = document.getElementById('pageInput');
 
@@ -443,7 +460,6 @@
       const val = input.value.trim().toLowerCase();
       const options = document.querySelectorAll("#pages option");
 
-      // 1. Direct match on option value
       for (const o of options) {
         if (o.value.toLowerCase() === val) {
           saveAndNavigate(o.dataset.rawTitle || o.value, o.dataset.url);
@@ -451,21 +467,19 @@
         }
       }
 
-      // 2. Search game catalog directly
-      const found = allGames.find(g => 
-        g.title.toLowerCase() === val ||
-        g.mathTitle.toLowerCase() === val ||
-        g.courseCode.toLowerCase() === val ||
-        g.shortMathTitle.toLowerCase() === val ||
-        g.id.toLowerCase() === val
+      const found = allModules.find(m => 
+        m.title.toLowerCase() === val ||
+        m.mathTitle.toLowerCase() === val ||
+        m.courseCode.toLowerCase() === val ||
+        m.shortMathTitle.toLowerCase() === val ||
+        m.id.toLowerCase() === val
       );
 
       if (found) {
-        saveAndNavigate(found.title, found.playerUrl || `/player.html?id=${found.id}`);
+        saveAndNavigate(found.shortMathTitle || found.title, found.moduleUrl || `/module.html?id=${found.id}`);
         return;
       }
 
-      // 3. Partial substring match
       for (const o of options) {
         if (o.value.toLowerCase().includes(val)) {
           saveAndNavigate(o.dataset.rawTitle || o.value, o.dataset.url);
@@ -483,17 +497,17 @@
 
   function saveAndNavigate(name, url) {
     try {
-      let recent = JSON.parse(localStorage.getItem("recentGames") || "[]");
+      let recent = JSON.parse(localStorage.getItem("recentMathModules") || localStorage.getItem("recentGames") || "[]");
       recent = recent.filter(v => v.toLowerCase() !== name.toLowerCase());
       recent.unshift(name);
       if (recent.length > maxRecent) recent.length = maxRecent;
-      localStorage.setItem("recentGames", JSON.stringify(recent));
+      localStorage.setItem("recentMathModules", JSON.stringify(recent));
     } catch (_) {}
 
     window.location.href = url;
   }
 
-  /* ---------- SCIENTIFIC CALCULATOR MODAL WIDGET ---------- */
+  /* ---------- CALCULATOR WIDGET ---------- */
   function setupModalCalculator() {
     const container = document.getElementById('modalCalcButtons');
     const screen = document.getElementById('modalCalcScreen');
@@ -504,27 +518,22 @@
       { label: '(', class: 'op', action: 'insert', val: '(' },
       { label: ')', class: 'op', action: 'insert', val: ')' },
       { label: '÷', class: 'op', action: 'insert', val: '/' },
-
       { label: 'sin', class: 'op', action: 'fn', fn: 'Math.sin' },
       { label: 'cos', class: 'op', action: 'fn', fn: 'Math.cos' },
       { label: 'tan', class: 'op', action: 'fn', fn: 'Math.tan' },
       { label: '×', class: 'op', action: 'insert', val: '*' },
-
       { label: '7', class: '', action: 'insert', val: '7' },
       { label: '8', class: '', action: 'insert', val: '8' },
       { label: '9', class: '', action: 'insert', val: '9' },
       { label: '-', class: 'op', action: 'insert', val: '-' },
-
       { label: '4', class: '', action: 'insert', val: '4' },
       { label: '5', class: '', action: 'insert', val: '5' },
       { label: '6', class: '', action: 'insert', val: '6' },
       { label: '+', class: 'op', action: 'insert', val: '+' },
-
       { label: '1', class: '', action: 'insert', val: '1' },
       { label: '2', class: '', action: 'insert', val: '2' },
       { label: '3', class: '', action: 'insert', val: '3' },
       { label: '√', class: 'op', action: 'fn', fn: 'Math.sqrt' },
-
       { label: '0', class: '', action: 'insert', val: '0' },
       { label: '.', class: '', action: 'insert', val: '.' },
       { label: '=', class: 'equal', action: 'eval' }
@@ -575,13 +584,12 @@
 
   /* ---------- MAIN BOOTSTRAP ---------- */
   window.addEventListener("DOMContentLoaded", () => {
-    // Custom title restoration
     const savedTitle = localStorage.getItem("mathCustomTitle");
     if (savedTitle) document.title = savedTitle;
 
     createMathSymbols();
     initializeInteractions();
-    loadGamesCatalog();
+    loadCurriculum();
   });
 </script>
 </body>
