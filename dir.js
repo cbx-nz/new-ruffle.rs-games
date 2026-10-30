@@ -10,16 +10,16 @@ const { exec } = require('child_process');
 
 const app  = express();
 const PORT = 3001;
-const PUBLIC = path.join(__dirname, 'public');
+const ROOT_DIR = __dirname;
 
-// 1) Serve static assets from /public
-app.use(express.static(PUBLIC));
+// 1) Serve static assets from root
+app.use(express.static(ROOT_DIR));
 
 // 2) Directory‑listing middleware (runs *after* express.static)
 app.use(async (req, res, next) => {
   try {
-    // Map the URL path to the filesystem path inside /public
-    const localPath = path.join(PUBLIC, decodeURIComponent(req.path));
+    // Map the URL path to the filesystem path inside root
+    const localPath = path.join(ROOT_DIR, decodeURIComponent(req.path));
     const stat = await fs.promises.stat(localPath);
 
     if (stat.isDirectory()) {
@@ -52,11 +52,15 @@ app.use(async (req, res, next) => {
 
 // 3) Catch‑all 404 page
 app.use((req, res) => {
-  res.status(404).sendFile(path.join(PUBLIC, '404.html'));
+  res.status(404).sendFile(path.join(ROOT_DIR, '404.html'));
 });
 
 // 4) Start server and open browser
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
-  exec(`start http://localhost:${PORT}`); // Windows: open default browser
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}/`);
+    exec(`start http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
