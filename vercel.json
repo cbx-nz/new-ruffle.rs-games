@@ -2,9 +2,8 @@
   "version": 2,
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/api/curriculum", "destination": "/api/curriculum" },
-    { "source": "/api/modules", "destination": "/api/modules" },
-    { "source": "/api/module", "destination": "/api/module" },
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/index", "destination": "/index.html" },
     { "source": "/api/games", "destination": "/api/curriculum" },
     { "source": "/api/game", "destination": "/api/module" },
     { "source": "/api/random", "destination": "/api/curriculum?random=true" },
@@ -13,7 +12,8 @@
     { "source": "/lab/:id", "destination": "/module.html?id=:id" },
     { "source": "/play/:id", "destination": "/module.html?id=:id" },
     { "source": "/game/:id", "destination": "/module.html?id=:id" },
-    { "source": "/calc", "destination": "/calculator.html" }
+    { "source": "/calc", "destination": "/calculator.html" },
+    { "source": "/calculator", "destination": "/calculator.html" }
   ],
   "headers": [
     {

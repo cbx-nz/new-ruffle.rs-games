@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" id="siteFavicon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M18 4H6v2l6.5 6L6 18v2h12v-3h-7l5-4.5L11 8h7V4z'/%3E%3C/svg%3E" />
+  <title id="siteTitle">Online Maths Club — Advanced Mathematics & STEM Modeling</title>
+  <link rel="stylesheet" type="text/css" href="./assets/css/selector.css" />
+</head>
+<body>
+  <!-- Floating Math Background -->
+  <div class="math-bg" id="mathBackground"></div>
+
+  <!-- Academic Top Navigation -->
+  <header class="top-nav">
+    <a href="/index.html" class="nav-brand">
+      <svg viewBox="0 0 24 24"><path d="M18 4H6v2l6.5 6L6 18v2h12v-3h-7l5-4.5L11 8h7V4z"/></svg>
+      <span>Online Maths Club</span>
+      <span class="badge">STEM Lab</span>
+    </a>
+
+    <div class="nav-tools">
+      <!-- Random Exercise Button -->
+      <button class="nav-tool-btn" id="btnNavRandom" title="Open a Random Math Simulation">
+        <svg viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg>
+        <span>Random Problem</span>
+      </button>
+
+      <!-- Quick Formula Sheet -->
+      <button class="nav-tool-btn" id="btnNavFormulas" title="Formula Reference Cheat Sheet">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14h-2v-4H8v-2h2V9h2v2h2v2h-2v4z"/></svg>
+        <span>Formulas</span>
+      </button>
+
+      <!-- Quick Scientific Calculator -->
+      <button class="nav-tool-btn" id="btnNavCalc" title="Open Scientific Calculator">
+        <svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zm0 2v4h10V4H7zm0 6v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zm-8 4v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zm-8 4v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2z"/></svg>
+        <span>Calculator</span>
+      </button>
+
+      <!-- Stealth Cloak Toggle Switch -->
+      <div class="cloak-toggle" title="Toggle between Pure Academic Course Names and Standard Labels">
+        <span>Academic Cloak</span>
+        <label class="switch">
+          <input type="checkbox" id="cloakToggleInput">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <!-- Central Hero -->
+  <div class="portal-hero">
+    <h1 class="portal-title" id="heroPortalTitle">Online Mathematics & Dynamics Laboratory</h1>
+    <p class="portal-subtitle" id="heroPortalSubtitle">Interactive problem sets, kinematic vector simulations & computational geometry</p>
+  </div>
+
+  <!-- Category Filter Pills -->
+  <div class="category-pills" id="categoryPills">
+    <button class="cat-pill active" data-category="all">All Modules</button>
+    <button class="cat-pill" data-category="Kinematics & Dynamics">Kinematics & Dynamics</button>
+    <button class="cat-pill" data-category="Spatial Geometry & Topology">Spatial Topology</button>
+    <button class="cat-pill" data-category="Resource Optimization">Resource & Queueing</button>
+    <button class="cat-pill" data-category="Computational Logic">Computational Logic</button>
+    <button class="cat-pill" data-category="Fluid & Thermodynamics">Fluid & Particles</button>
+    <button class="cat-pill" data-category="3D WebGL Labs">3D WebGL Labs</button>
+  </div>
+
+  <!-- Search & Launch Form -->
+  <form id="pageForm" autocomplete="off">
+    <input list="pages" id="pageInput" placeholder="Search by course code, topic, or module…" required />
+    <datalist id="pages"></datalist>
+    <button type="submit">Join!</button>
+  </form>
+
+  <!-- Recent Clubs Panel -->
+  <div id="recentGames">
+    <h3>Recent Clubs (Latest First)</h3>
+    <ol id="recentList"></ol>
+  </div>
+
+  <!-- Bottom Left Button Container -->
+  <div id="bottomLeftButtons">
+    <div id="infoBtn" title="More Information">i</div>
+    <div class="logo-btn" id="githubBtn" title="GitHub Repository">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+    </div>
+    <div class="logo-btn" id="mathBtn" title="Mathematics Resources (Khan Academy)">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+      </svg>
+    </div>
+    <div class="logo-btn" id="calculatorBtn" title="Scientific Calculator (Desmos)">
+      <svg viewBox="0 0 24 24">
+        <path d="M7,2H17A2,2 0 0,1 19,4V20A2,2 0 0,1 17,22H7A2,2 0 0,1 5,20V4A2,2 0 0,1 7,2M7,4V8H17V4H7M7,10V12H9V10H7M11,10V12H13V10H11M15,10V12H17V10H15M7,14V16H9V14H7M11,14V16H13V14H11M15,14V16H17V14H15M7,18V20H9V18H7M11,18V20H13V18H11M15,18V20H17V18H15Z"/>
+      </svg>
+    </div>
+    <div class="logo-btn" id="settingsBtn" title="Disguise Settings">
+      <svg viewBox="0 0 24 24">
+        <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11.03L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.22,8.95 2.27,9.22 2.46,9.37L4.57,11.03C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.22,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.68 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
+      </svg>
+    </div>
+    <div class="logo-btn" id="developerBtn" title="Developer Website">
+      <svg viewBox="0 0 24 24">
+        <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- MODAL: Scientific Calculator -->
+  <div class="modal-overlay" id="calcModal">
+    <div class="modal-content" style="max-width: 360px;">
+      <div class="modal-header">
+        <h3>Scientific Calculator</h3>
+        <button class="modal-close" id="btnCloseCalcModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="modalCalcHistory" style="font-size:0.85rem;color:#64748b;min-height:20px;text-align:right;"></div>
+        <div id="modalCalcScreen" style="background:#1e293b;color:#38bdf8;font-family:monospace;font-size:1.6rem;padding:0.75rem;border-radius:6px;text-align:right;margin-bottom:1rem;">0</div>
+        <div id="modalCalcButtons" class="calc-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Formula Reference Sheet -->
+  <div class="modal-overlay" id="formulasModal">
+    <div class="modal-content" style="max-width: 580px;">
+      <div class="modal-header">
+        <h3>Mathematics & Physics Formula Sheet</h3>
+        <button class="modal-close" id="btnCloseFormulasModal">✕</button>
+      </div>
+      <div class="modal-body" style="font-size: 0.95rem;">
+        <h4 style="color:#0284c7;margin-bottom:0.4rem;">Derivatives (Calculus)</h4>
+        <p style="background:#f1f5f9;padding:0.6rem;border-radius:6px;font-family:serif;font-size:1.1rem;margin-bottom:0.8rem;">
+          d/dx[xⁿ] = n·xⁿ⁻¹ &nbsp;|&nbsp; d/dx[eˣ] = eˣ &nbsp;|&nbsp; d/dx[ln x] = 1/x<br>
+          d/dx[sin x] = cos x &nbsp;|&nbsp; d/dx[cos x] = -sin x &nbsp;|&nbsp; d/dx[tan x] = sec²x
+        </p>
+        <h4 style="color:#0284c7;margin-bottom:0.4rem;">Integrals</h4>
+        <p style="background:#f1f5f9;padding:0.6rem;border-radius:6px;font-family:serif;font-size:1.1rem;margin-bottom:0.8rem;">
+          ∫ xⁿ dx = (xⁿ⁺¹)/(n+1) + C &nbsp;|&nbsp; ∫ 1/x dx = ln|x| + C &nbsp;|&nbsp; ∫ eˣ dx = eˣ + C
+        </p>
+        <h4 style="color:#0284c7;margin-bottom:0.4rem;">Kinematics</h4>
+        <p style="background:#f1f5f9;padding:0.6rem;border-radius:6px;font-family:serif;font-size:1.1rem;">
+          v = v₀ + at &nbsp;|&nbsp; s = v₀t + ½at² &nbsp;|&nbsp; v² = v₀² + 2as
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Settings -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal-content" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3>Portal Disguise & Appearance</h3>
+        <button class="modal-close" id="btnCloseSettingsModal">✕</button>
+      </div>
+      <div class="modal-body" style="display:flex;flex-direction:column;gap:1.25rem;">
+        <div>
+          <label style="font-weight:600;display:block;margin-bottom:0.3rem;">Default Disguise Mode</label>
+          <select id="settingCloakMode" style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;">
+            <option value="academic">Academic Course Titles (Maximum Stealth)</option>
+            <option value="hybrid">Hybrid Titles (Math Module + Code)</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-weight:600;display:block;margin-bottom:0.3rem;">Panic Key (Boss Cloak)</label>
+          <p style="font-size:0.85rem;color:#64748b;">Pressing <kbd style="background:#e2e8f0;padding:2px 6px;border-radius:4px;">Esc</kbd> or <kbd style="background:#e2e8f0;padding:2px 6px;border-radius:4px;">`</kbd> inside any module immediately opens the Desmos Scientific Calculator screen.</p>
+        </div>
+        <div>
+          <label style="font-weight:600;display:block;margin-bottom:0.3rem;">Browser Tab Title Cloak</label>
+          <input type="text" id="settingCustomTitle" placeholder="Online Maths Club" style="width:100%;padding:0.6rem;border-radius:6px;border:1px solid #cbd5e1;" />
+        </div>
+        <button id="btnSaveSettings" style="background:#0284c7;color:#fff;padding:0.6rem;border:none;border-radius:6px;font-weight:600;cursor:pointer;">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  /* ---------- CONFIG & STATE ---------- */
+  const maxRecent = 25;
+  let allModules = [];
+  let currentCategory = 'all';
+  let isAcademicCloak = localStorage.getItem("mathStealthCloak") !== "false";
+
+  /* ---------- MATH BACKGROUND ANIMATION ---------- */
+  function createMathSymbols() {
+    const mathSymbols = [
+      '<svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>',
+      '<svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>',
+      '<svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4H6v2h12v-2z"/></svg>',
+      '<svg viewBox="0 0 24 24"><path d="M19 10H5v2h14v-2zm0 4H5v2h14v-2z"/></svg>',
+      '<svg viewBox="0 0 24 24"><path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 9.14C9.51 8.17 8.15 7.61 6.71 7.61c-2.88 0-5.22 2.34-5.22 5.22 0 1.44.56 2.8 1.53 3.77.97.97 2.33 1.53 3.77 1.53 1.44 0 2.8-.56 3.77-1.53L12 14.34l1.52 1.51c.97.97 2.33 1.53 3.77 1.53 2.88 0 5.22-2.34 5.22-5.22 0-1.44-.56-2.8-1.53-3.77-.97-.97-2.33-1.53-3.77-1.53z"/></svg>'
+    ];
+
+    const mathEquations = [
+      '∫ f(x)dx = F(x) + C',
+      'd/dx[x²] = 2x',
+      '∂f/∂x + ∂f/∂y = ∇f',
+      'lim[x→0] sin(x)/x = 1',
+      '∫₀^∞ e^(-x²)dx = √π/2',
+      'd/dx[eˣ] = eˣ',
+      '∫ 1/x dx = ln|x| + C',
+      '∇²f = ∂²f/∂x² + ∂²f/∂y²',
+      'log_a(xy) = log_a(x) + log_a(y)',
+      'e^(iπ) + 1 = 0',
+      'F = ma',
+      'E = mc²',
+      '∑[n=1 to ∞] 1/n² = π²/6',
+      'sin²(x) + cos²(x) = 1',
+      'a² + b² = c²',
+      'x = (-b ± √(b²-4ac))/2a',
+      '∇ × E = -∂B/∂t',
+      'π ≈ 3.14159...',
+      'e ≈ 2.71828...',
+      'φ = (1+√5)/2'
+    ];
+
+    const animationClasses = ['float-horizontal', 'float-diagonal', 'float-circular', 'float-vertical', 'float-figure8', 'float-spiral', 'float-wave', 'float-orbit'];
+    const mathBg = document.getElementById('mathBackground');
+    mathBg.innerHTML = "";
+
+    for (let i = 0; i < 30; i++) {
+      const element = document.createElement('div');
+      element.className = `math-symbol ${animationClasses[Math.floor(Math.random() * animationClasses.length)]}`;
+
+      if (Math.random() > 0.3) {
+        element.innerHTML = mathEquations[Math.floor(Math.random() * mathEquations.length)];
+        element.classList.add('math-equation');
+        if (Math.random() > 0.6) element.classList.add('large');
+      } else {
+        element.innerHTML = mathSymbols[Math.floor(Math.random() * mathSymbols.length)];
+      }
+
+      element.style.left = Math.random() * 100 + '%';
+      element.style.top = Math.random() * 100 + '%';
+      element.style.animationDelay = (i * 2) + Math.random() * 10 + 's';
+      element.style.animationDuration = (20 + Math.random() * 30) + 's';
+      element.style.opacity = 0.04 + Math.random() * 0.08;
+
+      if (!element.classList.contains('math-equation')) {
+        const scale = 0.8 + Math.random() * 1.4;
+        element.style.transform = `scale(${scale})`;
+      }
+
+      mathBg.appendChild(element);
+    }
+  }
+
+  /* ---------- BULLETPROOF RESILIENT CURRICULUM LOADER ---------- */
+  async function loadCurriculum() {
+    // 1. Try academic API route (/api/curriculum)
+    try {
+      const res = await fetch('/api/curriculum');
+      if (res.ok) {
+        const data = await res.json();
+        const list = data.modules || data.items || data.games;
+        if (Array.isArray(list) && list.length > 0) {
+          allModules = list;
+          renderDatalist();
+          loadRecentModules();
+          return;
+        }
+      }
+    } catch (e) {
+      console.warn("API route unavailable, trying static curriculum file:", e);
+    }
+
+    // 2. Direct Static CDN Fallback (/assets/curriculum.json - Zero Serverless, pure static)
+    try {
+      const res = await fetch('/assets/curriculum.json');
+      if (res.ok) {
+        const list = await res.json();
+        if (Array.isArray(list) && list.length > 0) {
+          allModules = list;
+          renderDatalist();
+          loadRecentModules();
+          return;
+        }
+      }
+    } catch (e) {
+      console.warn("Static assets fallback failed, trying root:", e);
+    }
+
+    // 3. Root static fallback (/curriculum.json)
+    try {
+      const res = await fetch('/curriculum.json');
+      if (res.ok) {
+        const list = await res.json();
+        if (Array.isArray(list) && list.length > 0) {
+          allModules = list;
+          renderDatalist();
+          loadRecentModules();
+          return;
+        }
+      }
+    } catch (e) {
+      console.error("All curriculum sources failed:", e);
+    }
+  }
+
+  /* ---------- RENDER DATALIST ---------- */
+  function renderDatalist() {
+    const datalist = document.getElementById('pages');
+    datalist.innerHTML = "";
+
+    let filtered = allModules;
+    if (currentCategory !== 'all') {
+      const catLower = currentCategory.toLowerCase();
+      filtered = filtered.filter(m => m.category.toLowerCase().includes(catLower));
+    }
+
+    filtered.sort((a, b) => {
+      const titleA = isAcademicCloak ? `${a.courseCode}: ${a.shortMathTitle}` : a.mathTitle;
+      const titleB = isAcademicCloak ? `${b.courseCode}: ${b.shortMathTitle}` : b.mathTitle;
+      return titleA.localeCompare(titleB);
+    });
+
+    filtered.forEach(m => {
+      const opt = document.createElement('option');
+      opt.value = isAcademicCloak ? `${m.courseCode}: ${m.shortMathTitle}` : m.mathTitle;
+      opt.dataset.url = m.moduleUrl || `/module.html?id=${m.id}`;
+      opt.dataset.id = m.id;
+      opt.dataset.code = m.courseCode;
+      opt.dataset.rawTitle = m.title;
+      datalist.appendChild(opt);
+    });
+  }
+
+  /* ---------- RECENT MODULES ---------- */
+  function loadRecentModules() {
+    const recent = JSON.parse(localStorage.getItem("recentMathModules") || localStorage.getItem("recentGames") || "[]");
+    const recentList = document.getElementById("recentList");
+    if (!recentList) return;
+
+    recentList.innerHTML = "";
+    recent.forEach(name => {
+      const li = document.createElement("li");
+      li.textContent = name;
+      li.style.cursor = "pointer";
+      li.addEventListener("click", () => {
+        const match = allModules.find(m => 
+          m.title.toLowerCase() === name.toLowerCase() ||
+          m.mathTitle.toLowerCase() === name.toLowerCase() ||
+          m.shortMathTitle.toLowerCase() === name.toLowerCase() ||
+          m.courseCode.toLowerCase() === name.toLowerCase()
+        );
+
+        if (match) {
+          window.location.href = match.moduleUrl || `/module.html?id=${match.id}`;
+        } else {
+          const opt = Array.from(document.querySelectorAll("#pages option"))
+            .find(o => o.value.toLowerCase().includes(name.toLowerCase()));
+          if (opt) window.location.href = opt.dataset.url;
+        }
+      });
+      recentList.appendChild(li);
+    });
+  }
+
+  /* ---------- INTERACTIONS & BUTTONS ---------- */
+  function initializeInteractions() {
+    const cloakInput = document.getElementById('cloakToggleInput');
+    cloakInput.checked = isAcademicCloak;
+    cloakInput.addEventListener('change', () => {
+      isAcademicCloak = cloakInput.checked;
+      localStorage.setItem("mathStealthCloak", isAcademicCloak);
+      renderDatalist();
+    });
+
+    document.querySelectorAll('.cat-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentCategory = pill.dataset.category;
+        renderDatalist();
+      });
+    });
+
+    document.getElementById('btnNavRandom').addEventListener('click', async () => {
+      try {
+        const res = await fetch('/api/curriculum?random=true');
+        const data = await res.json();
+        const rand = data.module || data.item;
+        if (rand) {
+          window.location.href = rand.moduleUrl || `/module.html?id=${rand.id}`;
+          return;
+        }
+      } catch (_) {}
+
+      if (allModules.length) {
+        const rand = allModules[Math.floor(Math.random() * allModules.length)];
+        window.location.href = rand.moduleUrl || `/module.html?id=${rand.id}`;
+      }
+    });
+
+    const calcModal = document.getElementById('calcModal');
+    const formulasModal = document.getElementById('formulasModal');
+    const settingsModal = document.getElementById('settingsModal');
+
+    document.getElementById('btnNavCalc').addEventListener('click', () => calcModal.classList.add('open'));
+    document.getElementById('calculatorBtn').addEventListener('click', () => calcModal.classList.add('open'));
+    document.getElementById('btnCloseCalcModal').addEventListener('click', () => calcModal.classList.remove('open'));
+
+    document.getElementById('btnNavFormulas').addEventListener('click', () => formulasModal.classList.add('open'));
+    document.getElementById('btnCloseFormulasModal').addEventListener('click', () => formulasModal.classList.remove('open'));
+
+    document.getElementById('settingsBtn').addEventListener('click', () => {
+      document.getElementById('settingCloakMode').value = isAcademicCloak ? 'academic' : 'hybrid';
+      settingsModal.classList.add('open');
+    });
+    document.getElementById('btnCloseSettingsModal').addEventListener('click', () => settingsModal.classList.remove('open'));
+
+    document.getElementById('btnSaveSettings').addEventListener('click', () => {
+      const mode = document.getElementById('settingCloakMode').value;
+      isAcademicCloak = (mode === 'academic');
+      cloakInput.checked = isAcademicCloak;
+      localStorage.setItem("mathStealthCloak", isAcademicCloak);
+
+      const customTitle = document.getElementById('settingCustomTitle').value.trim();
+      if (customTitle) {
+        document.title = customTitle;
+        localStorage.setItem("mathCustomTitle", customTitle);
+      }
+
+      renderDatalist();
+      settingsModal.classList.remove('open');
+    });
+
+    document.getElementById('githubBtn').addEventListener('click', () => {
+      window.open('https://github.com/cbx-nz/new-ruffle.rs-games', '_blank');
+    });
+
+    document.getElementById('mathBtn').addEventListener('click', () => {
+      window.open('https://www.khanacademy.org/math', '_blank');
+    });
+
+    document.getElementById('developerBtn').addEventListener('click', () => {
+      window.open('https://cbgames-xyz.vercel.app', '_blank');
+    });
+
+    document.getElementById('infoBtn').addEventListener('click', () => {
+      window.open('/README.md', '_blank');
+    });
+
+    [calcModal, formulasModal, settingsModal].forEach(m => {
+      m.addEventListener('click', (e) => {
+        if (e.target === m) m.classList.remove('open');
+      });
+    });
+
+    setupModalCalculator();
+
+    const form = document.getElementById('pageForm');
+    const input = document.getElementById('pageInput');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = input.value.trim().toLowerCase();
+      const options = document.querySelectorAll("#pages option");
+
+      for (const o of options) {
+        if (o.value.toLowerCase() === val) {
+          saveAndNavigate(o.dataset.rawTitle || o.value, o.dataset.url);
+          return;
+        }
+      }
+
+      const found = allModules.find(m => 
+        m.title.toLowerCase() === val ||
+        m.mathTitle.toLowerCase() === val ||
+        m.courseCode.toLowerCase() === val ||
+        m.shortMathTitle.toLowerCase() === val ||
+        m.id.toLowerCase() === val
+      );
+
+      if (found) {
+        saveAndNavigate(found.shortMathTitle || found.title, found.moduleUrl || `/module.html?id=${found.id}`);
+        return;
+      }
+
+      for (const o of options) {
+        if (o.value.toLowerCase().includes(val)) {
+          saveAndNavigate(o.dataset.rawTitle || o.value, o.dataset.url);
+          return;
+        }
+      }
+
+      alert("Please select a valid laboratory module from the curriculum.");
+    });
+
+    input.addEventListener("focus", () => {
+      input.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowDown" }));
+    });
+  }
+
+  function saveAndNavigate(name, url) {
+    try {
+      let recent = JSON.parse(localStorage.getItem("recentMathModules") || localStorage.getItem("recentGames") || "[]");
+      recent = recent.filter(v => v.toLowerCase() !== name.toLowerCase());
+      recent.unshift(name);
+      if (recent.length > maxRecent) recent.length = maxRecent;
+      localStorage.setItem("recentMathModules", JSON.stringify(recent));
+    } catch (_) {}
+
+    window.location.href = url;
+  }
+
+  /* ---------- CALCULATOR WIDGET ---------- */
+  function setupModalCalculator() {
+    const container = document.getElementById('modalCalcButtons');
+    const screen = document.getElementById('modalCalcScreen');
+    const history = document.getElementById('modalCalcHistory');
+
+    const buttons = [
+      { label: 'C', class: 'clear', action: 'clear' },
+      { label: '(', class: 'op', action: 'insert', val: '(' },
+      { label: ')', class: 'op', action: 'insert', val: ')' },
+      { label: '÷', class: 'op', action: 'insert', val: '/' },
+      { label: 'sin', class: 'op', action: 'fn', fn: 'Math.sin' },
+      { label: 'cos', class: 'op', action: 'fn', fn: 'Math.cos' },
+      { label: 'tan', class: 'op', action: 'fn', fn: 'Math.tan' },
+      { label: '×', class: 'op', action: 'insert', val: '*' },
+      { label: '7', class: '', action: 'insert', val: '7' },
+      { label: '8', class: '', action: 'insert', val: '8' },
+      { label: '9', class: '', action: 'insert', val: '9' },
+      { label: '-', class: 'op', action: 'insert', val: '-' },
+      { label: '4', class: '', action: 'insert', val: '4' },
+      { label: '5', class: '', action: 'insert', val: '5' },
+      { label: '6', class: '', action: 'insert', val: '6' },
+      { label: '+', class: 'op', action: 'insert', val: '+' },
+      { label: '1', class: '', action: 'insert', val: '1' },
+      { label: '2', class: '', action: 'insert', val: '2' },
+      { label: '3', class: '', action: 'insert', val: '3' },
+      { label: '√', class: 'op', action: 'fn', fn: 'Math.sqrt' },
+      { label: '0', class: '', action: 'insert', val: '0' },
+      { label: '.', class: '', action: 'insert', val: '.' },
+      { label: '=', class: 'equal', action: 'eval' }
+    ];
+
+    let expr = "";
+    container.innerHTML = "";
+
+    buttons.forEach(b => {
+      const btn = document.createElement('button');
+      btn.className = `calc-btn ${b.class}`;
+      btn.textContent = b.label;
+      btn.addEventListener('click', () => {
+        if (b.action === 'clear') {
+          expr = "";
+          screen.textContent = "0";
+          history.textContent = "";
+        } else if (b.action === 'insert') {
+          expr += b.val;
+          screen.textContent = expr;
+        } else if (b.action === 'fn') {
+          expr = `${b.fn}(${expr || '0'})`;
+          try {
+            const res = eval(expr);
+            history.textContent = expr;
+            expr = String(res);
+            screen.textContent = expr;
+          } catch {
+            screen.textContent = "Error";
+            expr = "";
+          }
+        } else if (b.action === 'eval') {
+          try {
+            history.textContent = expr + " =";
+            const clean = expr.replace(/×/g, '*').replace(/÷/g, '/');
+            const res = Function('"use strict";return (' + clean + ')')();
+            screen.textContent = Number.isInteger(res) ? res : Number(res.toFixed(6));
+            expr = String(res);
+          } catch {
+            screen.textContent = "Syntax Error";
+            expr = "";
+          }
+        }
+      });
+      container.appendChild(btn);
+    });
+  }
+
+  /* ---------- MAIN BOOTSTRAP ---------- */
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedTitle = localStorage.getItem("mathCustomTitle");
+    if (savedTitle) document.title = savedTitle;
+
+    createMathSymbols();
+    initializeInteractions();
+    loadCurriculum();
+  });
+</script>
+</body>
+</html>
